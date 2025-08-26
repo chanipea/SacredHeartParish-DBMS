@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <h2>Log in</h2>
             <form action="../Log_In/login_system.php" method="post">
-                <label for="username">Email address</label>
+                <label for="username">Username</label>
                 <input type="text" id="username" name="username" placeholder="Enter username" required>
 
                 <label for="password">Password</label>
