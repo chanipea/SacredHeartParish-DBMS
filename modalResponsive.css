@@ -1,0 +1,350 @@
+/* modalResponsive.css */
+/* Responsive modals for 320px, 375px, 425px, 768px, and 1024px */
+
+.sidebar-toggle-button {
+    display: none; /* <<<< THIS IS THE KEY LINE TO ENSURE IT'S HIDDEN BY DEFAULT */
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1005;
+    background: #34495e; /* Or your chosen background/image */
+    color: white;       /* If using text or for SVG fill */
+    border: none;
+    padding: 8px 12px;  /* Adjust padding as needed */
+    cursor: pointer;
+    border-radius: 3px;
+    /* If using an <img> or <svg> inside, you might have different padding on the button itself (e.g., padding: 0;)
+       and then padding on the image/svg if needed.
+       If using background-image, padding here defines the button size. */
+    /* font-size: 20px; */ /* If using a text icon */
+    /* line-height: 0; */ /* If using an image/svg to prevent extra space */
+}
+
+.sidebar-toggle-button img {
+    display: block; /* Or inline-block, depending on desired layout */
+    width: 24px;    /* Adjust to your icon's desired size */
+    height: 24px;   /* Adjust to your icon's desired size */
+    padding: 8px;   /* Add padding around the image to make the clickable area larger */
+    /* This effectively replaces the button's original padding */
+}
+
+@media (max-width: 1200px) {
+    .header .icon {
+        margin-left: -600px; /* Adjust icon position as screen narrows */
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .sidebar-toggle-button {
+        top: 10px;
+        left: -50px;
+        padding: 6px 10px;
+        font-size: 18px;
+
+    }
+
+    .header {
+        height: 100px; /* Slightly reduce header height */
+    }
+
+    .header .icon {
+        width: 70px;
+        height: 70px;
+        margin-right: 20px;
+        margin-left: -30%; /* Adjust to keep it relatively positioned */
+        left: 20px !important;
+        margin-right: 30px;
+        margin-left: -700px;
+    }
+    .header .title {
+        font-size: 28px; /* Adjust title size */
+    }
+
+    .sidebar {
+        width: 220px;
+        margin-top: 100px; /* Adjust to new header height */
+        padding-top: 20px;
+    }
+    .sidebar .logo {
+        font-size: 28px;
+        margin-top: 25px;
+    }
+    .menu li {
+        width: 190px;
+        font-size: 12px;
+    }
+
+    .dropdown {
+        width: 130px;
+        left: 5px;
+        margin-bottom: 50px;
+    }
+
+    .dropdown li {
+        text-align: left;       /* Recommended for readability */
+        padding: 8px 15px;      /* Consistent padding */
+        font-size: 12px;        /* Your desired font size for items */
+        color: white;
+        width: 130px;
+        text-align: center;
+    }
+
+    .dropdown {
+        width: 130px;
+        background: #3a3a50;
+        position: relative;
+        border-radius: 5px;
+        top: -15px;
+        left: 25px;
+    }
+
+    .button-stack {
+        bottom: 15px;
+        left: 15px;
+    }
+    .logout-btn, .certOpen-btn {
+        width: 190px; /* Match sidebar item width */
+        font-size: 12px;
+    }
+
+    .modal-content,
+    .modal-content2 {
+        width: 90% !important;
+        max-width: 390px !important;
+        margin: 20% auto !important;
+        padding: 15px !important;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .sidebar-toggle-button {
+        display: block;
+    }
+
+    /* Hamburger toggle button */
+    .sidebar-toggle-button {
+        display: block; /* Show button on smaller screens */
+        position: fixed; /* Keep it fixed on screen */
+        top: 15px;
+        left: 15px;
+        z-index: 1005; /* Above content, below open sidebar */
+    }
+
+    body {
+        font-size: 13px;
+    }
+
+    .header {
+        height: auto; /* Allow header to adjust height based on content */
+        padding: 10px 10px 10px 10px; /* Add bottom padding for fixed sidebar toggle */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .header::before {
+        background-position: center top; /* Adjust background image focus */
+
+    }
+    .header .icon {
+        width: 70px;
+        height: 70px;
+        margin-left: 0; /* Center icon */
+        margin-right: 0;
+    }
+    .header .title {
+        font-size: 22px;
+        position: static; /* Remove fixed positioning */
+        width: 100%;
+    }
+
+    .container {
+        height: 920px;
+        background-image: linear-gradient(#5c5c74, #1a1a28);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;;
+    }
+    .content {
+        flex: none;
+        align-items: center;
+        margin: 0 auto;
+        margin-top: -70px;
+    }
+    
+    .sidebar aside{
+        height: 100vh;
+
+    }
+
+    .sidebar {
+        position: fixed; /* Keep fixed for off-canvas */
+        left: -100%; /* Hide by default */
+        width: 230px; /* Or a percentage like 80% */
+        height: 100vh; /* Full viewport height */
+        top: 0; /* Align to top of viewport */
+        margin-top: 0; /* Remove margin-top from fixed header */
+        transition: left 0.3s ease-in-out;
+        z-index: 1100; /* High z-index for sidebar */
+        overflow-y: auto; /* Allow sidebar to scroll if content is long */
+        box-shadow: 2px 0 5px rgba(0,0,0,0.2); /* Add shadow for off-canvas effect */
+    }
+
+    .sidebar.active { /* Add this class with JS to show the sidebar */
+        left: 0;
+    }
+    .sidebar .logo {
+        margin-top: 20px;
+        font-size: 24px;
+    }
+    li#certificates {
+        position: relative; /* Ensure parent is positioned for absolute child */
+        z-index: 3; /* Or higher if needed within the active sidebar context */
+    }
+    .menu li {
+        width: calc(100% - 30px); /* Full width minus padding */
+    }
+
+    .dropdown {
+        width: 140px;
+        left: 5px;
+        margin-bottom: 50px;
+    }
+    .dropdown-active {
+        display: block;         /* Show the dropdown */
+        opacity: 1;
+    }
+
+    .dropdown li {
+        text-align: left;       /* Recommended for readability */
+        padding: 8px 15px;      /* Consistent padding */
+        font-size: 14px;        /* Your desired font size for items */
+        color: white;
+        width: 130px;
+        text-align: center;
+    }
+
+    .dropdown {
+        width: 130px;
+        left: 5px;
+        margin-bottom: 60px;
+        background: #3a3a50;
+        position: relative;
+        border-radius: 5px;
+        top: -25px;
+        left: -70px;
+    }
+
+    .table-container {
+        width: 750px;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+        padding: 20px;
+        margin-left: 10px; /* Adjust based on sidebar width */
+
+        margin-top: 30px;
+    }
+
+    .section-title {
+        font-size: 24px;
+        padding: 15px;
+        margin: 0 -10px 10px -10px; /* Adjust for container padding */
+        width: calc(100% + 20px);
+    }
+    /* Sidebar navigation items */
+    .sidebar nav ul li {
+        padding: 12px 15px;
+        font-size: 0.95em;
+    }
+    .button-stack { /* For logout/generate cert buttons when sidebar is off-canvas */
+        position: relative; /* Change from fixed if sidebar is scrollable */
+        bottom: -350px;
+        left: auto;
+        margin: 20px 15px; /* Add some margin inside the sidebar */
+        width: calc(100% - 30px);
+    }
+
+        /*--- upload button [start] ---*/
+
+        .bottom-right {
+            position: absolute;
+            bottom: 20px;
+            right: 100px;
+        }
+
+        /*--- upload button [end] ---*/
+
+        /*--- landing button [start] ---*/
+
+        .landingMain-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 230px;
+            width: 200px;
+        }
+
+
+        .logout-btn, .certOpen-btn {
+            width: 100%;
+            font-size: 14px;
+        }
+        
+    li#certificates {
+        position: relative; /* Ensure parent is positioned for absolute child */
+        z-index: 3; /* Or higher if needed within the active sidebar context */
+    }
+
+        .modal-content,
+        .modal-content2 {
+            top: 240px;
+            width: 90% !important;
+            max-width: 360px !important;
+            margin: 20% auto !important;
+            padding: 15px !important;
+        }
+    }
+
+    @media (max-width: 425px) {
+        .modal-content,
+        .modal-content2 {
+            width: 95% !important;
+            max-width: 320px !important;
+            margin: 25% auto !important;
+        }
+    }
+
+    @media (max-width: 375px) {
+        .modal-content,
+        .modal-content2 {
+            width: 95% !important;
+            max-width: 300px !important;
+            margin: 30% auto !important;
+        }
+    }
+
+    @media (max-width: 320px) {
+        .modal-content,
+        .modal-content2 {
+            width: 95% !important;
+            max-width: 280px !important;
+            margin: 35% auto !important;
+            padding: 10px !important;
+        }
+
+        .certAdd-btn,
+        .upload-btn {
+            font-size: 14px !important;
+            padding: 8px !important;
+        }
+
+        input[type="text"] {
+            font-size: 13px !important;
+        }
+
+        h2 {
+            font-size: 16px !important;
+        }
+    }

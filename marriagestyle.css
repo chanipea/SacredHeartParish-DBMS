@@ -1,0 +1,927 @@
+/*===== DASHBOARD STYLE =====*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    padding: 0;
+    /* background: #2d2d3a; */
+    user-select: none;
+    height: 100%; /* added */
+    margin: 0; /* added */
+    overflow: hidden; /* added */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    /* background-image: linear-gradient(#5c5c74,#1a1a28 );
+    background-repeat: no-repeat; */
+    color: white;
+    background-color: #F5F5DC;
+}
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 120px;
+    width: 100%;
+    z-index: 100;
+    background-color: #5c5c74; /* added for priest */
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('imagess/savior.jpg');
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,.60);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.header .icon {
+    width: 90px;
+    height: 90px;
+    background-image: url('imagess/sacred.png');
+    background-color: white;
+    background-size: cover;
+    border-radius: 50%;
+    margin-right: 30px;
+    margin-left: -900px;
+}
+
+.header .title {
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    position: fixed;
+    z-index: 1;
+}
+
+.sidebar {
+    width: 250px;
+    background: #1e1e2e;
+    padding: 30px 0;
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+    margin-top: 90px ;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    overflow-y: hidden; /* changed from auto */
+    overflow-x: hidden;
+    
+}
+
+/*--- scroll bar during dropdown [start] ---*/
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+  
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #57577a;
+    border-radius: 5px;
+}
+  
+.sidebar::-webkit-scrollbar-track {
+    background: #2c2c3a;
+}
+/*--- scroll bar during dropdown [end] ---*/
+
+/*--- menu panel [start] ---*/
+.sidebar .logo {
+    margin-top: 30px;
+    font-size: 35px;
+    text-align: center;
+}
+
+.menu ul {
+    list-style: none;
+
+}
+
+.menu li {
+    font-size: 15px;
+    width: 220px;
+    padding: 10px;
+    margin: 15px 15px;
+    background: #2c2c3a;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.menu li.active, .menu li:hover {
+    background: #57577a;
+}
+
+#dashboardButton img {
+  width: 20px; 
+  height: 20px; 
+  vertical-align: middle; 
+  margin-right: 3px; 
+}
+
+
+#priestButton img {
+  width: 20px; 
+  height: 20px; 
+  vertical-align: middle; 
+  margin-right: 3px; 
+}
+
+#massButton img {
+  width: 20px; 
+  height: 20px; 
+  vertical-align: middle; 
+  margin-right: 3px; 
+}
+
+#eventsButton img {
+  width: 20px; 
+  height: 20px; 
+  vertical-align: middle; 
+  margin-right: 3px; 
+}
+
+#certificates img {
+  width: 20px; 
+  height: 20px; 
+  vertical-align: middle; 
+  margin-right: 3px; 
+}
+
+#clientButton img {
+  width: 20px; 
+  height: 20px; 
+  vertical-align: middle; 
+  margin-right: 3px; 
+}
+/*--- menu panel [end] ---*/
+
+.content {
+    flex: 1;
+    margin-left: 200px;
+    padding: 20px;
+    display: flex;
+    color: black;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+li#certificates {
+    position: relative; 
+    margin-bottom: px;
+    z-index: 3; 
+}
+
+/*--- dropdown [start]---*/
+.dropdown {
+    display: none;
+    margin: -5px 0 -15px 50px; 
+    padding: 5px 0 0;
+    width: 160px; 
+    background: #3a3a50;
+    position: relative;
+    border-radius: 5px;
+    top: -15px;
+    left: 25px; 
+    z-index: 1;
+}
+
+.dropdown-active {
+    display: block;
+    max-height: 150px;
+    opacity: 1;
+    z-index: 2;
+}
+
+.dropdown li {
+    background: #3a3a50;
+    padding: 5px 10px;
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+    width: 100%; 
+    border-radius: 0;
+    transition: background 0.3s;
+}
+
+.dropdown ul {
+    padding: 0px;
+}
+
+.dropdown li:hover {
+    background: #323241;
+}
+
+#dropdownIcon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+#certificates.open #dropdownIcon {
+    transform: rotate(90deg); 
+}
+/*--- dropdown [end] ---*/
+
+
+/*===== PRIEST STYLE =====*/
+
+/*--- title on top of the table ---*/
+.section-title {
+    background-color: #34495E;
+    color: white;
+    text-align: center;
+    margin: 0px ;
+    padding: 30px;
+    font-size: 45px;
+    font-weight: bold;
+    width: 100%;    
+}
+
+
+/*--- records table [start] ---*/
+table {
+    width: 100%;
+    background: #fff;
+    color: #000; /*text color inside the table*/
+    border-collapse: collapse;
+    border-color:  #34495E; /*table border*/
+}
+
+table thead {
+    background-color: #34495E; /*color of the column header*/
+    color: white;
+    border-color: #000000; /*column header border*/
+    margin: 0 auto;
+}
+
+table th, table td {
+    padding: 20px 12px;
+}
+
+.table-container {
+    margin: 0 20px 20px 270px;
+    width: calc(100% - 290px);
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+
+    margin-top: 30px;
+}
+/*--- records table [end] ---*/
+
+/*--- record table - to stick the column headers while scrolling through records [start] ---*/
+table#recordsTable {
+    border-collapse: collapse;
+    width: 100%;  
+}
+
+table#recordsTable th, table#recordsTable td {
+    position: sticky;
+    padding: 12px 10px;
+    text-align: center;
+    vertical-align: middle;
+    border: 2px solid #000000;
+    min-width: 120px;
+    border-color:  #000000; /*table border*/
+}
+
+#recordsTable th {
+    position: sticky;
+    top: 0;
+    border: 1px solid #000000;
+    background-color: #34495E;
+    z-index: 1; 
+    padding: 10px; 
+}
+
+/*--- record table - to stick the column headers while scrolling through records [end] ---*/
+
+/*--- scroll bar when there's a lot of records [start] ---*/
+.table-scroll {
+    max-height: 500px;  /* Adjustable height */
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+/*--- record table - to stick the column headers while scrolling through records [start] ---*/
+/* table#recordsTable {
+    width: 100%;
+    border-collapse: collapse;
+    overflow-y: auto;
+    display: block;
+    max-height: 500px;  
+} */
+
+table#recordsTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table#recordsTable th,
+table#recordsTable td {
+    padding: 12px 10px;
+    text-align: center;
+    vertical-align: middle;
+    border: 2px solid #000000;
+    min-width: 120px;
+    border-color: #000000; /* Table border */
+}
+
+#recordsTable th {
+    position: sticky;
+    top: 0;
+    background-color: #34495E; /* Color of the header */
+    color: white; /* Header text color */
+    z-index: 1; /* Ensure header stays above the table rows */
+}
+
+#recordsTable thead { /* --- ADDED FOR MARRIAGE !!! ---*/
+    position: sticky;
+    top: 0;
+    background-color: #34495E; /* Color of the header */
+    color: white; /* Header text color */
+    z-index: 1; /* Ensure header stays above the table rows */
+}
+
+#recordsTable td {
+    position: relative;
+    background-color: white;
+}
+
+/*--- scroll bar when there's a lot of records [end] ---*/
+
+
+/*--- search bar and input field [start] ---*/
+.search-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 3;
+    padding: 10px 0;
+}
+
+
+#searchInput {
+    padding: 6px 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/*--- search bar and input field [end] ---*/
+
+/*--- record buttons [updated] ---*/
+.record-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+/*--- record buttons [end] ---*/
+
+
+/*--- update record button [start] ---*/
+#updateRecordBtn, #addRecordBtn {
+    padding: 6px 12.7px;
+    font-size: 11px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap; /* prevents text wrapping */
+}
+
+/* Optional hover override */
+#updateRecordBtn {
+    background-color: #F39C12;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+/*--- add record button beside search bar [end] ---*/
+
+/*--- add record pop up panel [start] ---*/
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content, .modal-contentCert {
+    background: #f3f3f3;
+    color: #000;
+    padding: 0;
+    border-radius: 8px;
+    width: 1000px;
+    max-height: 90%;
+    overflow-y: auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    background-color: #1e1e2e;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+}
+
+.modal-header span {
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+}
+
+.modal-header h3 {
+    margin: 0;
+    text-align: center;
+    color: white;
+    width: 100%;
+}
+
+.modal-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.modal-footer button {
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-bottom: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 20px;
+}
+
+.input-grid input {
+    padding: 6px;
+}
+
+.modal input[type="text"], .modal input[type="date"] { /* added - but idk for what ni */
+    width: 80%;
+    padding: 5px;
+}
+
+
+/*--- log out button [start] ---*/
+.button-stack {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column; /* stack vertically; use row for side-by-side */
+    gap: 10px;
+    z-index: 100;
+}
+
+.sidebar-logout,
+#generateCertificateButton,
+.bottom-left {
+    position: static !important;
+    margin: 0 !important;
+}
+
+
+.logout-btn {
+    width: 203px;
+    background-color: #37374a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #57577a;
+}
+/*--- log out button [end] ---*/
+
+
+/*===== CERTIFICATE GENERATOR =====*/
+
+/* --- modal styles [start] ---*/
+form {
+    margin-top: 20px;
+}
+
+label {
+    font-family: 'Poppins';
+    font-size: 16px; /* text inside the text field "enter client ID" */
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content, .modal-contentCert {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #888;
+    width: 20%;
+    position: relative;
+    z-index: 11;
+}
+
+
+h2 {
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+input[type="text"]{ /* text field */
+    font-family: 'Poppins';
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+/* --- modal styles [end] ---*/
+
+
+/* --- 'x' button [start] ---*/
+.close-btn {
+    color: #888;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #ff2929;
+    text-decoration: none;
+}
+/* --- 'x' button [end] ---*/
+
+/*--- inside modal button | generate certificate [start] ---*/
+.certAdd-btn {
+    font-family: 'Poppins';
+    background-color: #37374a;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.certAdd-btn:hover {
+    background-color: #57577a;
+}
+
+.certAdd-btn:focus {
+    border-color: #3b9df4;
+    outline: none;
+}
+/*--- inside modal button | generate certificate [end] ---*/
+
+
+
+/*--- bottom-left button | generate certificate [start] ---*/
+.bottom-left {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    top: 770px;
+    z-index: 100;
+}
+
+#generateCertificateButton {
+    margin-top: 20px;
+}
+
+.certOpen-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+
+}
+
+.certOpen-btn:hover {
+    background-color: #45a049;
+}
+
+.certOpen-btn:active {
+    background-color: #3e8e41;
+}
+/*--- bottom-left button | generate certificate [end] ---*/
+
+/* --- choosing of certificate to generate [start] --- */
+.cert-dropdown {
+    position: absolute;
+    bottom: 10px; /* drop downward */
+    left: 50%; 
+    transform: translateX(-50%); 
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 90%;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    z-index: 1000;
+}
+
+
+.cert-dropdown li {
+    padding: 5px;
+    cursor: pointer;
+    
+}
+
+.cert-dropdown li:hover {
+    background-color: #f2f2f2;
+}
+
+.hidden {
+    display: none;
+}
+
+.certChoose-btn {
+    font-family: 'Poppins';
+    background-color: #37374a;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.certChoose-btn:hover {
+    background-color: #57577a; 
+}
+
+.certChoose-btn:focus {
+    border-color: #3b9df4; 
+    outline: none;
+}
+/* --- choosing of certificate to generate [end] --- */
+
+/*--- choose certificate dropdown animation [start] ---*/
+.cert-dropdown.dropdown-active {
+    display: block;
+    max-height: 150px;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.cert-dropdown li:hover {
+    background: #e6e6ec;
+}
+
+#certDropdownIcon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-right: 5px;
+}
+
+#certDropdownIcon.rotated {
+    transform: rotate(90deg);
+}
+/*--- choose certificate dropdown animation [end] ---*/
+
+.hidden {
+    display: none;
+}
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    display: block; /* Ensures it takes its own line if needed */
+    margin-top: 2px;
+}
+/* Optional: Style for valid/invalid inputs */
+input.valid, select.valid, textarea.valid {
+    border: 1px solid green !important;
+}
+input.invalid, select.invalid, textarea.invalid {
+    border: 1px solid red !important;
+}
+.error-message[id$="Errors"] {
+    margin-left: 30px !important; /* Override more specific margins if needed */
+}
+
+/* start filter btn */
+/* Add to marriagestyle.css or a shared stylesheet */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: -16px; /*CHANGE BY SHELAA*/
+    flex-wrap: wrap;
+}
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-container select,
+.filter-container input[type="number"],
+.filter-container input[type="text"], /* For specific date DD/MM/YYYY */
+.filter-container .filter-btn {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 38px;
+    box-sizing: border-box;
+}
+
+.filter-container input[type="number"],
+.filter-container input[type="text"] {
+    width: 120px;
+}
+.filter-container input[name="filter_year_for_month_value_marriage"] {
+    width: 100px; /* Smaller for optional year */
+}
+
+.filter-container select {
+    min-width: 200px; /* For longer text options */
+}
+
+#applyFilterBtnMarriage, #clearFilterBtnMarriage {
+    padding: 6px 12.7px;
+    font-size: 11px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    height: 28px;
+    margin-top: 2px;
+}
+#applyFilterBtnMarriage:hover {
+    background-color: #4cae4c;
+}
+
+#clearFilterBtnMarriage { /* Specific ID for marriage page */
+    background-color: #f0ad4e;
+}
+#clearFilterBtnMarriage:hover {
+    background-color: #eea236;
+}
+
+.filter-input-group {
+    display: inline-block;
+}
+
+#searchInput {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 38px;
+    box-sizing: border-box;
+}
+.record-buttons {
+    display: flex;
+    gap: 10px;
+}/* end filter btn*/
+
+/* +++++++++++++++++++ RESPONSIVE LAYOUT +++++++++++++++++++*/
+
+@media (max-width: 1024px) {
+    
+    .logout-btn, .certOpen-btn {
+        width: 100%;
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .logout-btn, .certOpen-btn {
+        width: 100%;
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 300px) {
+    .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .record-buttons {
+        justify-content: center;
+    }
+
+    #searchInput, #addRecordBtn, #updateRecordBtn {
+        width: 100%;
+    }
+}
+
+.sidebar-toggle-button {
+    display: none; /* <<<< THIS IS THE KEY LINE TO ENSURE IT'S HIDDEN BY DEFAULT */
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1005;
+    background: #34495e; /* Or your chosen background/image */
+    color: white;       /* If using text or for SVG fill */
+    border: none;
+    padding: 8px 12px;  /* Adjust padding as needed */
+    cursor: pointer;
+    border-radius: 3px;
+    /* If using an <img> or <svg> inside, you might have different padding on the button itself (e.g., padding: 0;)
+       and then padding on the image/svg if needed.
+       If using background-image, padding here defines the button size. */
+    /* font-size: 20px; */ /* If using a text icon */
+    /* line-height: 0; */ /* If using an image/svg to prevent extra space */
+}
+
+
+

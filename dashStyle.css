@@ -1,0 +1,923 @@
+/*===== DASHBOARD STYLE =====*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    padding: 0;
+    /* background: #2d2d3a; */
+    user-select: none;
+    height: 100%; /* added */
+    margin: 0; /* added */
+    overflow: hidden; /* added */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-image: linear-gradient(#5c5c74,#1a1a28 );
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 120px;
+    width: 100%;
+    z-index: 100;
+    background-color: #5c5c74; /* added for priest */
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('imagess/savior.jpg');
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,.60);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.header .icon {
+    width: 90px;
+    height: 90px;
+    background-image: url('imagess/sacred.png');
+    background-color: white;
+    background-size: cover;
+    border-radius: 50%;
+    margin-right: 30px;
+    margin-left: -900px;
+}
+
+.header .title {
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    position: fixed;
+    z-index: 1;
+}
+
+.sidebar {
+    width: 250px;
+    background: #1e1e2e;
+    padding: 30px 0;
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+    margin-top: 90px ;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    overflow-y: hidden; /* changed from auto */
+    overflow-x: hidden;
+
+}
+
+/*--- scroll bar during dropdown [start] ---*/
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #57577a;
+    border-radius: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #2c2c3a;
+}
+/*--- scroll bar during dropdown [end] ---*/
+
+/*--- menu panel [start] ---*/
+.sidebar .logo {
+    margin-top: 30px;
+    font-size: 35px;
+    text-align: center;
+}
+
+
+.menu ul {
+    list-style: none;
+
+}
+
+.menu li {
+    font-size: 15px;
+    width: 220px;
+    padding: 10px;
+    margin: 15px 15px;
+    background: #2c2c3a;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.menu li.active, .menu li:hover {
+    background: #57577a;
+}
+
+#dashboardButton img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+
+#priestButton img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+#massButton img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+#eventsButton img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+#certificates img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+#clientButton img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+#uploadImageButton img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+#landingPageBtn img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+/*--- menu panel [end] ---*/
+
+.content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .toggle-btn {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #37374a;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+} */
+
+/*--- carousel [start] ---*/
+.description {
+    text-align: center;
+    width: 80%;
+    margin: -100px;
+    font-size: 16px;
+    color: white;
+}
+
+[type=radio] {
+    display: none;
+}
+
+#slider {
+    margin-top: -100px;
+    width: 50%;
+    max-width: 600px;
+    height: 350px;
+    margin-bottom: 150px;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+#slider label {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    overflow: hidden;
+}
+
+#slider img {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+#s1:checked ~ #slide2, #s2:checked ~ #slide3, #s3:checked ~ #slide1 {
+    opacity: 0.5;
+    transform: scale(1);
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.37);
+    transform: translate3d(-40%, 0, -100px);
+}
+
+#s1:checked ~ #slide3, #s2:checked ~ #slide1, #s3:checked ~ #slide2 {
+    opacity: 0.5;
+    transform: scale(1);
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,.3), 0 2px 2px 0 rgba(0,0,0,.2);
+    transform: translate3d(-20%, 0, -100px);
+}
+
+
+#s1:checked ~ #slide1, #s2:checked ~ #slide2, #s3:checked ~ #slide3 {
+    box-shadow: 0 13px 25px 0 rgba(0,0,0,.3), 0 11px 7px 0 rgba(0,0,0,.19);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+#s1:checked ~ #slide3, #s2:checked ~ #slide1, #s3:checked ~ #slide2 {
+    opacity: 0.5;
+    transform: scale(1);
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,.3), 0 2px 2px 0 rgba(0,0,0,.2);
+    transform: translate3d(40%, 0, -100px);
+}
+
+#slide1, #slide2, #slide3 {
+    background: none;
+}
+/*--- carousel [end] ---*/
+
+
+
+li#certificates {
+    position: relative;
+    z-index: 3;
+}
+
+/*--- transferred inside dashboard.html [start]---*/
+.dropdown {
+    display: none;
+    margin: -5px 0 -15px 50px;
+    padding: 5px 0 0;
+    width: 160px;
+    background: #3a3a50;
+    position: relative;
+    border-radius: 5px;
+    top: -15px;
+    left: 25px;
+    z-index: 1;
+}
+
+.dropdown-active {
+    display: block;
+    max-height: 150px;
+    opacity: 1;
+    z-index: 2;
+}
+
+.dropdown li {
+    background: #3a3a50;
+    padding: 5px 10px;
+    font-size: 14px;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+    transition: background 0.3s;
+}
+
+.dropdown ul {
+    padding: 0px;
+}
+
+.dropdown li:hover {
+    background: #323241;
+}
+
+#dropdownIcon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+#certificates.open #dropdownIcon {
+    transform: rotate(90deg);
+}
+/*--- transferred inside dashboard.html [end]---*/
+
+/* ----- responsive web for narrow window ----- */
+@media (max-width: 770px) {
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        padding: 0;
+        /* background: #2d2d3a; */
+        user-select: none;
+        height: 100%; /* added */
+        margin: 0; /* added */
+        overflow: hidden; /* added */
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        /* background-image: linear-gradient(#5c5c74,#1a1a28 );
+        background-repeat: no-repeat; */
+        color: white;
+        background-color: #F5F5DC;
+    }
+
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 120px;
+        width: 100%;
+        z-index: 100;
+        background-color: #5c5c74; /* added for priest */
+    }
+
+    .header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('imagess/savior.jpg');
+        box-shadow: 0 2px 10px 0 rgba(0,0,0,.60);
+        background-size: cover;
+        background-position: center;
+        opacity: 0.5;
+        z-index: -1;
+    }
+
+    .header .icon {
+        width: 90px;
+        height: 90px;
+        background-image: url('imagess/sacred.png');
+        background-color: white;
+        background-size: cover;
+        border-radius: 50%;
+        margin-right: 30px;
+        margin-left: -900px;
+    }
+
+    .header .title {
+        font-size: 35px;
+        font-weight: bold;
+        text-align: center;
+        position: fixed;
+        z-index: 1;
+    }
+
+    .sidebar {
+        width: 250px;
+        background: #1e1e2e;
+        padding: 30px 0;
+        flex-direction: column;
+        position: fixed;
+        height: 100%;
+        margin-top: 90px ;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        overflow-y: hidden; /* changed from auto */
+        overflow-x: hidden;
+
+    }
+
+    /*--- scroll bar during dropdown [start] ---*/
+    .sidebar::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+        background-color: #57577a;
+        border-radius: 5px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+        background: #2c2c3a;
+    }
+    /*--- scroll bar during dropdown [end] ---*/
+
+    /*--- menu panel [start] ---*/
+    .sidebar .logo {
+        margin-top: 30px;
+        font-size: 35px;
+        text-align: center;
+    }
+
+
+    .menu ul {
+        list-style: none;
+
+    }
+
+    .menu li {
+        font-size: 15px;
+        width: 220px;
+        padding: 10px;
+        margin: 15px 15px;
+        background: #2c2c3a;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: left;
+    }
+
+    .menu li.active, .menu li:hover {
+        background: #57577a;
+    }
+
+    .content {
+        margin: 0;
+        margin-top: 400px;
+        padding: 15px 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        height: 175vh;
+    }
+
+
+    .dropdown {
+        margin-top: 5px;
+        margin-left: 145px;
+    }
+
+    .dropdown-active {
+        display: block;
+        max-height: 150px;
+        opacity: 1;
+    }
+
+    .dropdown li {
+        background: #3a3a50;
+        padding: 5px 10px;
+        font-size: 14px;
+        text-align: center;
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    #slider {
+        margin-top: 140px;
+    }
+
+    .description {
+        position: relative;
+        top: -130px;
+        padding-top: 100px;
+    }
+}
+
+
+/*--- log out button [start] ---*/
+.sidebar-logout {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 100;
+}
+
+.logout-btn {
+    width: 203px;
+    background-color: #37374a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #57577a;
+}
+/*--- log out button [end] ---*/
+
+/*--- upload button [start] ---*/
+.bottom-right  {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.bottom-right a {
+    text-decoration: none;
+}
+
+.bottom-right button {
+    background-color: #37374a;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.bottom-right button:hover {
+    background-color: #57577a;
+}
+/*--- upload button [end] ---*/
+
+/*--- log out button [start] ---*/
+.button-stack {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column; /* stack vertically; use row for side-by-side */
+    gap: 10px;
+    z-index: 100;
+}
+
+.sidebar-logout,
+#generateCertificateButton,
+.bottom-left {
+    position: static !important;
+    margin: 0 !important;
+}
+
+
+.logout-btn {
+    width: 203px;
+    background-color: #37374a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #57577a;
+}
+/*--- log out button [end] ---*/
+
+
+/*===== CERTIFICATE GENERATOR =====*/
+
+/* --- modal styles [start] ---*/
+form {
+    margin-top: 20px;
+}
+
+label {
+    font-family: 'Poppins';
+    font-size: 16px; /* text inside the text field "enter client ID" */
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #888;
+    width: 20%;
+    position: relative;
+    z-index: 11;
+}
+
+
+h2 {
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+input[type="text"]{ /* text field */
+    font-family: 'Poppins';
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+/* --- modal styles [end] ---*/
+
+
+/* --- 'x' button [start] ---*/
+.close-btn {
+    color: #888;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #ff2929;
+    text-decoration: none;
+}
+/* --- 'x' button [end] ---*/
+
+/*--- inside modal button | generate certificate [start] ---*/
+.certAdd-btn {
+    font-family: 'Poppins';
+    background-color: #37374a;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.certAdd-btn:hover {
+    background-color: #57577a;
+}
+
+.certAdd-btn:focus {
+    border-color: #3b9df4;
+    outline: none;
+}
+/*--- inside modal button | generate certificate [end] ---*/
+
+
+
+/*--- bottom-left button | generate certificate [start] ---*/
+.bottom-left {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    top: 770px;
+    z-index: 100;
+}
+
+#generateCertificateButton {
+    margin-top: 20px;
+}
+
+.certOpen-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+
+}
+
+.certOpen-btn:hover {
+    background-color: #45a049;
+}
+
+.certOpen-btn:active {
+    background-color: #3e8e41;
+}
+/*--- bottom-left button | generate certificate [end] ---*/
+
+/* --- choosing of certificate to generate [start] --- */
+.cert-dropdown {
+    position: absolute;
+    bottom: 10px; /* drop downward */
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 90%;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    z-index: 1000;
+}
+
+
+.cert-dropdown li {
+    padding: 5px;
+    cursor: pointer;
+
+}
+
+.cert-dropdown li:hover {
+    background-color: #f2f2f2;
+}
+
+.hidden {
+    display: none;
+}
+
+.certChoose-btn {
+    font-family: 'Poppins';
+    background-color: #37374a;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.certChoose-btn:hover {
+    background-color: #57577a;
+}
+
+.certChoose-btn:focus {
+    border-color: #3b9df4;
+    outline: none;
+}
+/* --- choosing of certificate to generate [end] --- */
+
+/*--- choose certificate dropdown animation [start] ---*/
+.cert-dropdown.dropdown-active {
+    display: block;
+    max-height: 150px;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.cert-dropdown li:hover {
+    background: #e6e6ec;
+}
+
+#certDropdownIcon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-right: 5px;
+}
+
+#certDropdownIcon.rotated {
+    transform: rotate(90deg);
+}
+
+/*--- choose certificate dropdown animation [end] ---*/
+
+
+/*--- upload modal---*/
+.modal-content2 {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #888;
+    width: 20%;
+    position: relative;
+    z-index: 11;
+    color: black;
+}
+
+.upload-btn {
+    font-family: 'Poppins';
+    background-color: #37374a;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.upload-btn:hover {
+    background-color: #57577a;
+}
+
+/*--- upload button inside modal [end] ---*/
+
+
+/*--- landing button [start] ---*/
+.landingMain-btn  {
+    position: fixed;
+    bottom: 20px;
+    right: 180px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.landingMain-btnt a {
+    text-decoration: none;
+}
+
+.landingMain-btn button {
+    background-color: #37374a;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.landingMain-btn button:hover {
+    background-color: #57577a;
+}
+/*--- landing button [end] ---*/
+
+.no-style-li {
+    background: none !important;
+    padding: 0 !important;
+    list-style: none !important;
+    /* Remove any hover effect */
+}
+
+.no-style-li:hover {
+    background: none !important;
+}
+
+/* ----- responsive web for narrow window ----- */

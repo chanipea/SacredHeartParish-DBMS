@@ -1,0 +1,186 @@
+/*===== DASHBOARD STYLE =====*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+body {
+    padding: 0;
+    background: #2d2d3a;
+    user-select: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-image: linear-gradient(#5c5c74, #1a1a28);
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 120px;
+    width: 100%;
+    z-index: 100;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("imagess/savior.jpg");
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .60);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.header .icon {
+    width: 90px;
+    height: 90px;
+    background-image: url("imagess/sacred.png");
+    background-color: white;
+    background-size: cover;
+    border-radius: 50%;
+    margin-right: 30px;
+    margin-left: -350px;
+}
+
+.header .title {
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Option Buttons */
+.options {
+    display: flex;
+    justify-content: center;
+    margin-right: 230px;
+    position: relative; 
+    z-index: 10; 
+}
+.options button {
+    background-color: #5c5c74;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 0px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+.options button:hover {
+    background-color: #4a4a5c;
+}
+
+/*--- carousel [start] ---*/
+.description {
+    text-align: center;
+    width: 80%;
+    margin: -100px;
+    font-size: 16px;
+    position: absolute;
+    color: white;
+    margin-right: 120px;
+    margin-bottom: 50px;
+    top: 800px;
+}
+
+[type=radio] {
+    display: none;
+}
+
+/* Carousel adjustments */
+#slider {
+    margin-top: 20px; 
+    margin-right: 220px;
+    width: 60%;
+    max-width: 650px;
+    height: 400px;
+    margin-bottom: 150px;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    z-index: 1;
+}
+
+
+#slider label {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30px;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    overflow: hidden;
+}
+
+#slider img {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+#s1:checked ~ #slide2, #s2:checked ~ #slide3, #s3:checked ~ #slide1 {
+    opacity: 0.5;
+    transform: scale(1);
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .37);
+    transform: translate3d(-40%, 0, -100px);
+}
+
+#s1:checked ~ #slide3, #s2:checked ~ #slide1, #s3:checked ~ #slide2 {
+    opacity: 0.5;
+    transform: scale(1);
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .3), 0 2px 2px 0 rgba(0, 0, 0, .2);
+    transform: translate3d(-20%, 0, -100px);
+}
+
+#s1:checked ~ #slide1, #s2 :checked ~ #slide2, #s3:checked ~ #slide3 {
+    box-shadow: 0 13px 25px 0 rgba(0, 0, 0, .3), 0 11px 7px 0 rgba(0, 0, 0, .19);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transform: scale(1);
+}
+
+#s1:checked ~ #slide3, #s2:checked ~ #slide1, #s3:checked ~ #slide2 {
+    opacity: 0.5;
+    transform: scale(1);
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .3), 0 2px 2px 0 rgba(0, 0, 0, .2);
+    transform: translate3d(40%, 0, -100px);
+}
+
+#slide1, #slide2, #slide3 {
+    background: none;
+}
+/*--- carousel [end] ---*/
