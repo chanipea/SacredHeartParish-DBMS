@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="logo">
                 <img src="../sacredLOGO.png" alt="Logo">
             </div>
-            <h2>Log in TEST</h2>
+            <h2>Log in</h2>
             <form action="../Log_In/login_system.php" method="post">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" placeholder="Enter username" required>
