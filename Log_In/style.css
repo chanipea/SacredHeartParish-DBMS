@@ -33,7 +33,7 @@
             display: flex;          /* row by default */
             width: 80%;             /* optional, adjust as needed */
             max-width: 1000px;      /* optional */
-            height: 650px;          /* adjust height as needed */
+            height: 700px;          /* adjust height as needed */
             border-radius: 20px;
             overflow: hidden;
             z-index: 1;
@@ -47,7 +47,7 @@
         }
 
         .login-section {
-            width: 50%;
+            width: 600px;
             background-color: rgba(255, 255, 255, 0.8);
             padding: 40px;
             display: flex;
