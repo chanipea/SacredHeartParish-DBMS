@@ -6,12 +6,11 @@
     <title>Admin Login</title>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="../tabLOGO.png">
-    <link rel="stylesheet" href="../Log_In/style.css">
+    <link rel="stylesheet" href="../Log_In/style.css?v=2">
 </head>
 <body>
     <div class="container">
         <div class="login-section">
-            <div class="top-bar"></div>
             <div class="logo">
                 <img src="../sacredLOGO.png" alt="Logo">
             </div>
@@ -23,13 +22,7 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter Password" required>
 
-                <div class="options">
-                    <label>
-                        <input type="checkbox" name="remember"> Remember me for 30 days
-                    </label>
-                    <a href="#" class="forgot-password">Forgot password?</a>
-                </div>
-
+            
                 <button type="submit">Log In</button>
             </form>
             <?php if (isset($_GET['error'])): ?>

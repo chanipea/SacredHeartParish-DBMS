@@ -94,12 +94,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login</title>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="../tabLOGO.png">
-    <link rel="stylesheet" href="../Log_In/style.css">
+    <link rel="stylesheet" href="../Log_In/style.css?v=2">
 </head>
 <body>
     <div class="container">
         <div class="login-section">
-            <div class="top-bar"></div>
             <div class="logo">
                 <img src="../sacredLOGO.png" alt="Logo">
             </div>
