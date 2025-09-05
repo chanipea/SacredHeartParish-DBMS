@@ -10,6 +10,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 }
 
 // Connect to the database
+$conn = new mysqli("localhost", "root", "", "sacredheartparish_dbms");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
