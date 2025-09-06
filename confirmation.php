@@ -978,43 +978,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         function resetAddConfirmationForm() {
-            // Reset the form fields
-            if (addConfirmationForm) addConfirmationForm.reset();
+    if (addConfirmationForm) addConfirmationForm.reset();
+    Object.keys(addConfirmationFields).forEach(fieldName => {
+        const fieldElement = addConfirmationFields[fieldName];
+        const errorElement = document.getElementById('add' + fieldName + 'Error');
+        if (fieldElement) {
+            fieldElement.style.border = '';
+        }
+        if (errorElement) {
+            errorElement.classList.add('hidden');
+            errorElement.textContent = '';
+        }
+        addConfirmationFormState[fieldName] = false;
+    });
+    if(addSubmitButton) {
+        addSubmitButton.disabled = true;
+        addSubmitButton.style.backgroundColor = '#cccccc';
+        addSubmitButton.style.cursor = 'not-allowed';  // Fixed typo here
+    }
+}
+        
 
-            // Reset validation state and clear error messages/borders
-            Object.keys(addConfirmationFields).forEach(fieldName => {
-                const fieldElement = addConfirmationFields[fieldName];
-                const errorElement = document.getElementById('add' + fieldName + 'Error');
-
-                if (fieldElement) {
-                    fieldElement.style.border = ''; // Clear border
-                }
-                if (errorElement) {
-                    errorElement.classList.add('hidden'); // Hide error message
-                    errorElement.textContent = ''; // Clear error text
-                }
-                addConfirmationFormState[fieldName] = false; // Reset state to invalid
-            });
-
-            // Disable submit button
-            if(addSubmitButton) {
-                addSubmitButton.disabled = true;
-                addSubmitButton.style.backgroundColor = '#cccccc';
-                submitButton.style.cursor = 'not-allowed';
-
-            }
+        function closeModal() {
+        document.getElementById("recordModal").style.display = "none";
+        resetAddConfirmationForm(); // Reset form when modal closes
         }
 
-
-        document.getElementById("addRecordBtn").onclick = function () {
-            resetAddConfirmationForm(); // Clear and reset state
-            document.getElementById("recordModal").style.display = "flex";
-        };
-
-        function closeModal() { // For Add Record Modal
-            document.getElementById("recordModal").style.display = "none";
-            resetAddConfirmationForm(); // Reset state when closed
-        }
 
         // Close modals if clicking outside
         window.onclick = function (event) {
@@ -1272,7 +1261,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     
     document.getElementById("addRecordBtn").onclick = function () {
-        document.getElementById("recordModal").style.display = "flex";
+    resetAddConfirmationForm();
+    document.getElementById("recordModal").style.display = "flex";      
     };
 
     function closeModal() {

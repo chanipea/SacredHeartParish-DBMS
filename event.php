@@ -492,7 +492,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="text" id="EventType" name="EventType" required 
                         placeholder="e.g., Baptism, Wedding, Funeral"
                         style="width: 80%; padding: 5px; margin-left: 55px;">
-                    <small id="EventTypeError" class="error-message hidden" style="display: block; margin-left: 55px; color: red; font-size: 12px; margin-top: 5px;">
+                    <small id="EventTypeError" class="error-message hidden" style="display: none; margin-left: 55px; color: red; font-size: 12px; margin-top: 5px;">
                         Event Type must be one of: Baptism, Wedding, Funeral, Confirmation
                     </small>
                 </div>
@@ -501,7 +501,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label for="Date" style="margin-left: 30px;">Date:</label><br>
                     <input type="date" id="Date" name="Date" required 
                         style="width: 80%; padding: 5px; margin-left: 30px;">
-                    <small id="DateError" class="error-message hidden" style="display: block; margin-left: 30px; color: red; font-size: 12px; margin-top: 5px;">
+                    <small id="DateError" class="error-message hidden" style="display: none; margin-left: 30px; color: red; font-size: 12px; margin-top: 5px;">
                         Date must be today or in the future
                     </small>
                 </div>
@@ -540,7 +540,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $conn->close();
                         ?>
                     </select>
-                    <small id="PriestIDError" class="error-message hidden" style="display: block; margin-left: 55px; color: red; font-size: 12px; margin-top: 5px;">
+                    <small id="PriestIDError" class="error-message hidden" style="display: none; margin-left: 55px; color: red; font-size: 12px; margin-top: 5px;">
                         Please select a priest.
                     </small>
                 </div>
@@ -890,8 +890,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     };
 
     function closeModal() {
-        document.getElementById("recordModal").style.display = "none";
+    document.getElementById("recordModal").style.display = "none";
+    
+    // Reset the form
+    const eventForm = document.getElementById('eventForm');
+    if (eventForm) {
+        eventForm.reset();
     }
+    
+    // Reset validation states
+    Object.keys(formState).forEach(key => formState[key] = false);
+    
+    // Hide all error messages
+    document.getElementById('EventTypeError').style.display = 'none';
+    document.getElementById('DateError').style.display = 'none';
+    document.getElementById('PriestIDError').style.display = 'none';
+    
+    // Reset field borders
+    document.getElementById('EventType').style.border = '';
+    document.getElementById('Date').style.border = '';
+    document.getElementById('OfficiatingPriestID').style.border = '';
+    
+    // Reset submit button
+    document.getElementById('submitButton').disabled = true;
+    document.getElementById('submitButton').style.backgroundColor = '#cccccc';
+}
+
 
     window.onclick = function (event) {
         const modal = document.getElementById("recordModal");
@@ -1062,7 +1086,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         const errorElementId = field.id + 'Error';
                         const errorElement = document.getElementById(errorElementId);
                         if (errorElement) {
-                            errorElement.classList.add('hidden');
+                           errorElement.style.display = 'none';
+
                         }
                     });
 
@@ -1229,7 +1254,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     errorElement.textContent = 'Event Type must be one of: Baptism, Wedding, Funeral, Confirmation'; // Reset default
                 } else {
                     fieldElement.style.border = '2px solid red';
-                    errorElement.classList.remove('hidden');
+                    errorElement.style.display = 'block';
                     if (value.trim() === '') {
                         errorElement.textContent = 'Event Type is required.';
                     } else {
@@ -1246,7 +1271,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (!isFormatValid) {
                     isValid = false;
                     fieldElement.style.border = '2px solid red';
-                    errorElement.classList.remove('hidden');
+                    errorElement.style.display = 'block';
                     if (value.trim() === '') {
                         errorElement.textContent = 'Date is required.';
                     } else {
@@ -1266,7 +1291,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         errorElement.textContent = 'Date must be today or in the future'; // Reset default
                     } else {
                         fieldElement.style.border = '2px solid red';
-                        errorElement.classList.remove('hidden');
+                        errorElement.style.display = 'block';
+
                         errorElement.textContent = 'Date must be today or in the future.';
                     }
                 }
@@ -1278,10 +1304,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 isValid = value !== ''; // "" is the value of "-- Select Priest --"
                 if (isValid) {
                     fieldElement.style.border = '2px solid green'; // Or no border change if preferred for select
-                    errorElement.classList.add('hidden');
+                   errorElement.style.display = 'none';
                 } else {
                     fieldElement.style.border = '2px solid red';
-                    errorElement.classList.remove('hidden');
+                      errorElement.style.display = 'block';
                 }
                 formState.priestID = isValid;
                 break;

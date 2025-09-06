@@ -771,13 +771,10 @@ input[type="text"]{ /* text field */
 }
 /*--- choose certificate dropdown animation [end] ---*/
 
-.hidden {
-    display: none;
-}
-.error-message {
+.error-message.hidden {
     color: red;
     font-size: 0.8em;
-    display: block; /* Ensures it takes its own line if needed */
+    display: none; /* Ensures it takes its own line if needed */
     margin-top: 2px;
 }
 /* Optional: Style for valid/invalid inputs */

@@ -1185,8 +1185,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     };
 
     function closeModal() {
-        document.getElementById("recordModal").style.display = "none";
-    }
+    document.getElementById("recordModal").style.display = "none";
+    resetAddPriestForm();  // Reset form fields and hide validation errors
+}
 
     window.onclick = function (event) {
         const modal = document.getElementById("recordModal");

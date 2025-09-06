@@ -1168,14 +1168,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     function resetMarriageForm(formTypePrefix) {
+        const submitBtn = (formTypePrefix === 'add') ? addMarriageSubmitButton : updateMarriageSubmitButton;
         const form = (formTypePrefix === 'add') ? addMarriageForm : updateMarriageForm;
         const fields = (formTypePrefix === 'add') ? addMarriageFields : updateMarriageFields;
         const formState = (formTypePrefix === 'add') ? addMarriageFormState : updateMarriageFormState;
         // const submitButton = (formTypePrefix === 'add') ? addMarriageSubmitButton : updateMarriageSubmitButton; // Already handled by checkMarriageFormOverallValidity
+        if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.backgroundColor = '#cccccc'; // gray
+        submitBtn.style.cursor = 'not-allowed';
+        }
 
         if (!form) {
             console.error("Form not found for reset:", formTypePrefix);
             return;
+            
         }
 
         if (formTypePrefix === 'add') {
@@ -1243,8 +1250,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         return false;
     }
 
-    function showMessageModal(message) { const modal = document.getElementById("messageModal"); const messageText = document.getElementById("messageModalText"); messageText.textContent = message; modal.style.display = "flex"; }
-    document.getElementById("addRecordBtn").onclick = function () { resetMarriageForm('add'); document.getElementById("recordModal").style.display = "flex"; };
+    function showMessageModal(message) { const modal = document.getElementById("messageModal"); const messageText = document.getElementById("messageModalText"); messageText.textContent = message; modal.style.display = "flex"; };
     function closeModal() { document.getElementById("recordModal").style.display = "none"; resetMarriageForm('add'); }
     document.getElementById("updateRecordBtn").onclick = function () { adminAuthenticated = false; resetMarriageForm('update'); openAdminModal(); disableRowClickEdit(); };
     function enableRowClickEdit() { const rows = document.querySelectorAll("#recordsTable tbody tr:nth-child(odd)"); rows.forEach(row => { row.style.cursor = "pointer"; row.removeEventListener('click', handleRowClick); row.addEventListener('click', handleRowClick); }); }
@@ -1349,8 +1355,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     document.getElementById("addRecordBtn").onclick = function () {
-        document.getElementById("recordModal").style.display = "flex";
-    };
+    resetMarriageForm('add');  // Clear errors and reset form state
+    document.getElementById("recordModal").style.display = "flex";
+};
 
     function closeModal() {
         document.getElementById("recordModal").style.display = "none";
