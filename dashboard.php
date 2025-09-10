@@ -24,7 +24,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     <title><?php echo $pageTitle; ?></title>
     <link rel="icon" type="image/x-icon" href="/images/sacred.png">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="dashStyle.css?v=13">
+    <link rel="stylesheet" href="dashStyle.css?v=16">
     <link rel="stylesheet" href="modalResponsive.css?v=13">
 
 </head>
@@ -130,6 +130,16 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                 <label for="s1" id="slide1"><img src="" alt="Slide 1"></label>
                 <label for="s2" id="slide2"><img src="" alt="Slide 2"></label>
                 <label for="s3" id="slide3"><img src="" alt="Slide 3"></label>
+
+                <button id="prevArrow" class="slider-arrow">&#10094;</button>
+                <button id="nextArrow" class="slider-arrow">&#10095;</button>
+
+                <div class="slider-indicators"> 
+                    <span class="indicator" id="indicator1"></span>
+                    <span class="indicator" id="indicator2"></span>
+                    <span class="indicator" id="indicator3"></span>
+                </div>
+
             </section>
             <div class="description">
                 <p>
@@ -199,7 +209,62 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     </div>
 </div>
 
+<div id="successModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeSuccessModal()">&times;</span>
+    <h2>Success</h2>
+    <p id="successMessage">Image uploaded successfully.</p>
+    <button onclick="closeSuccessModal()">OK</button>
+  </div>
+</div>
+
     <script>
+
+        let currentSlide = 1;
+        const totalSlides = 3; 
+        const intervalTime = 5000; 
+        
+        let slideInterval;                                
+
+// Show slide
+function showSlide(slideIndex) {
+    if (slideIndex < 1) slideIndex = totalSlides;
+    if (slideIndex > totalSlides) slideIndex = 1;
+    currentSlide = slideIndex;
+    document.getElementById("s" + currentSlide).checked = true;
+
+    document.querySelectorAll(".indicator").forEach((dot, index) => {
+        dot.classList.toggle("active", index + 1 === currentSlide);
+    });
+}
+
+// Controls
+function nextSlide() { showSlide(currentSlide + 1); }
+function prevSlide() { showSlide(currentSlide - 1); }
+
+// Auto slide
+function startAutoSlide() {
+    slideInterval = setInterval(nextSlide, intervalTime);
+}
+function stopAutoSlide() {
+    clearInterval(slideInterval);
+}
+
+// Events
+document.getElementById("nextArrow").addEventListener("click", () => {
+    nextSlide();
+    stopAutoSlide(); startAutoSlide();
+});
+document.getElementById("prevArrow").addEventListener("click", () => {
+    prevSlide();
+    stopAutoSlide(); startAutoSlide();
+});
+
+// Start on page load
+window.addEventListener("load", () => {
+    showSlide(currentSlide);
+    startAutoSlide();
+});
 
         window.addEventListener('load', function () {
          // Dynamically load slider images from image_path.json with cache-busting
@@ -360,6 +425,14 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                 }
             });
         }
+
+        function showSuccessModal(message) {
+  document.getElementById("successMessage").innerText = message;    
+}
+
+function closeSuccessModal() {
+  document.getElementById("successModal").style.display = "none";
+}
 
     </script>
 </body>

@@ -56,9 +56,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["uploadImage"])) {
     // Save updated paths
     file_put_contents($jsonPath, json_encode($imageData, JSON_PRETTY_PRINT));
     
+    // Show modal
     echo "<script>
-        window.parent.alert('Image uploaded successfully.');
-        window.parent.location.href='dashboard.php';
+        window.parent.showSuccessModal('Image uploaded successfully.');
+        setTimeout(function() {
+            window.parent.location.reload();
+        }, 500);
     </script>";
 } else {
     echo "<script>window.parent.displayUploadError('Invalid request.');</script>";
