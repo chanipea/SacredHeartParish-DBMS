@@ -23,7 +23,7 @@ $fromDashboard = isset($_SESSION['came_from_dashboard']) && $_SESSION['came_from
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sacred Heart of Jesus - Sacramental Events</title>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="landingStyle.css">
+    <link rel="stylesheet" href="landingStyle.css?v=8">
     <!-- Add these two lines for responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="landing_responsive.css?v=5">
@@ -53,6 +53,15 @@ $fromDashboard = isset($_SESSION['came_from_dashboard']) && $_SESSION['came_from
                 <label for="s1" id="slide1"><img src="" alt="Event 1"></label>
                 <label for="s2" id="slide2"><img src="" alt="Event 2"></label>
                 <label for="s3" id="slide3"><img src="" alt="Event 3"></label>
+
+                <button id="prevArrow" class="slider-arrow">&#10094;</button>
+                <button id="nextArrow" class="slider-arrow">&#10095;</button>
+
+                <div class="slider-indicators"> 
+                    <span class="indicator" id="indicator1"></span>
+                    <span class="indicator" id="indicator2"></span>
+                    <span class="indicator" id="indicator3"></span>
+                </div>
             </section>
             <div class="description">
                 <p><br><br>Cappucino Assassino</p>
@@ -61,6 +70,52 @@ $fromDashboard = isset($_SESSION['came_from_dashboard']) && $_SESSION['came_from
     </div>
 
     <script>    
+
+        let currentSlide = 1;
+        const totalSlides = 3; 
+        const intervalTime = 5000; 
+        
+        let slideInterval;                                
+
+// Show slide
+function showSlide(slideIndex) {
+    if (slideIndex < 1) slideIndex = totalSlides;
+    if (slideIndex > totalSlides) slideIndex = 1;
+    currentSlide = slideIndex;
+    document.getElementById("s" + currentSlide).checked = true;
+
+    document.querySelectorAll(".indicator").forEach((dot, index) => {
+        dot.classList.toggle("active", index + 1 === currentSlide);
+    });
+}
+
+// Controls
+function nextSlide() { showSlide(currentSlide + 1); }
+function prevSlide() { showSlide(currentSlide - 1); }
+
+// Auto slide
+function startAutoSlide() {
+    slideInterval = setInterval(nextSlide, intervalTime);
+}
+function stopAutoSlide() {
+    clearInterval(slideInterval);
+}
+
+// Events
+document.getElementById("nextArrow").addEventListener("click", () => {
+    nextSlide();
+    stopAutoSlide(); startAutoSlide();
+});
+document.getElementById("prevArrow").addEventListener("click", () => {
+    prevSlide();
+    stopAutoSlide(); startAutoSlide();
+});
+
+// Start on page load
+window.addEventListener("load", () => {
+    showSlide(currentSlide);
+    startAutoSlide();
+});
         window.onload = function() {
             // Load image paths from image_path.json with cache-busting
             fetch('image_path.json?t=' + new Date().getTime())
