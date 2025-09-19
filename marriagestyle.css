@@ -719,9 +719,6 @@ input[type="text"]{ /* text field */
     background-color: #f2f2f2;
 }
 
-.hidden {
-    display: none;
-}
 
 .certChoose-btn {
     font-family: 'Poppins';
@@ -772,7 +769,7 @@ input[type="text"]{ /* text field */
 /*--- choose certificate dropdown animation [end] ---*/
 
 .error-message.hidden {
-    color: red;
+    color: gray;
     font-size: 0.8em;
     display: none; /* Ensures it takes its own line if needed */
     margin-top: 2px;
@@ -782,7 +779,7 @@ input.valid, select.valid, textarea.valid {
     border: 1px solid green !important;
 }
 input.invalid, select.invalid, textarea.invalid {
-    border: 1px solid red !important;
+    border: 1px solid rgb(93, 89, 89) !important;
 }
 .error-message[id$="Errors"] {
     margin-left: 30px !important; /* Override more specific margins if needed */

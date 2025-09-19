@@ -267,7 +267,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title><?php echo $pageTitle; ?></title>
     <link rel="icon" href="/imagess/sacred.png">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="confirmationstyle.css?v=23">
+    <link rel="stylesheet" href="confirmationstyle.css?v=17">
     <link rel="stylesheet" href="responsive.css?v=16">
 </head>
 <body>
@@ -486,7 +486,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 90px; justify-content: space-between;">
 
                 <div style="flex: 1 1 45%;">
-                    <label for="YearOfConfirmation" style="margin-left: 55px;">Year of Confirmation:</label><br>
+                    <label for="YearOfConfirmation" style="margin-left: 55px;">Year of Confirmation:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="number" name="YearOfConfirmation" id="addYearOfConfirmation" min="1900" max="2099" step="1"
                            required style="width: 80%; padding: 5px; margin-left: 55px;"
                            onfocus="showFormat('yearFormat')" onblur="hideFormat('yearFormat')">
@@ -495,21 +497,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="ParentName" style="margin-left: 30px;">Parent's Name:</label><br>
+                    <label for="ParentName" style="margin-left: 30px;">Parent's Name:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" name="ParentName" id="addParentName" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="addParentNameError" class="error-message hidden" style="margin-left: 30px;">Parent's Name is required.</small>
                 </div>
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="ClientID" style="margin-left: 55px;">Client ID:</label><br>
+                    <label for="ClientID" style="margin-left: 55px;">Client ID:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="number" name="ClientID" id="addClientID" required style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="addClientIDError" class="error-message hidden" style="margin-left: 55px;">Client ID is required.</small>
                 </div>
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="SponsorName" style="margin-left: 30px;">Sponsor's Name:</label><br>
+                    <label for="SponsorName" style="margin-left: 30px;">Sponsor's Name:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" name="SponsorName" id="addSponsorName" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="addSponsorNameError" class="error-message hidden" style="margin-left: 30px;">Sponsor's Name is required.</small>
                 </div>
@@ -522,7 +530,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="PriestID" style="margin-left: 55px;">Select Priest:</label><br>
+                    <label for="PriestID" style="margin-left: 55px;">Select Priest:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <select name="PriestID" id="addPriestID" required style="width: 39%; padding: 5px; margin-left: 55px;">
                         <option value="">-- Select Priest --</option>
                         <?php
@@ -575,13 +585,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateParentName" style="margin-left: 30px;">Parent's Name:</label><br>
+                    <label for="updateParentName" style="margin-left: 30px;">Parent's Name:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updateParentName" name="ParentName" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="updateParentNameError" class="error-message hidden" style="margin-left: 30px;">Parent's Name is required.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateYearOfConfirmation" style="margin-left: 55px;">Year of Confirmation:</label><br>
+                    <label for="updateYearOfConfirmation" style="margin-left: 55px;">Year of Confirmation:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="number" id="updateYearOfConfirmation" name="YearOfConfirmation" min="1900" max="2099" step="1"
                            required style="width: 80%; padding: 5px; margin-left: 55px;"
                            onfocus="showFormat('yearFormat')" onblur="hideFormat('yearFormat')">
@@ -589,14 +603,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateSponsorName" style="margin-left: 30px;">Sponsor's Name:</label><br>
+                    <label for="updateSponsorName" style="margin-left: 30px;">Sponsor's Name:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updateSponsorName" name="SponsorName" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="updateSponsorNameError" class="error-message hidden" style="margin-left: 30px;">Sponsor's Name is required.</small>
                 </div>
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateClientID" style="margin-left: 55px;">Client ID:</label><br>
+                    <label for="updateClientID" style="margin-left: 55px;">Client ID:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="number" id="updateClientID" name="ClientID" required style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="updateClientIDError" class="error-message hidden" style="margin-left: 55px;">Client ID is required.</small>
                 </div>
@@ -604,7 +622,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updatePriestID" style="margin-left: 30px;">Select Priest:</label><br>
+                    <label for="updatePriestID" style="margin-left: 30px;">Select Priest:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <select name="PriestID" id="updatePriestID" required style="width: 80%; padding: 5px; margin-left: 30px;">
                         <option value="">-- Select Priest --</option>
                         <?php

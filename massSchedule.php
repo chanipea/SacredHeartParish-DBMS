@@ -384,7 +384,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title><?php echo $pageTitle; ?></title>
     <link rel="icon" href="/imagess/sacred.png">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="massStyle.css?v=12">
+    <link rel="stylesheet" href="massStyle.css?v=13">
         <!-- Add these two lines for responsiveness -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="massResponsive.css?v=12">
@@ -620,7 +620,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 90px; justify-content: space-between;">
                 <div style="flex: 1 1 45%;">
-                    <label for="addPriestID" style="margin-left: 30px;">Select Priest:</label><br>
+                    <label for="addPriestID" style="margin-left: 30px;">Select Priest:
+                        <span style="color: red;">*</span>
+                    </label><br>
                     <select id="addPriestID" name="PriestID" style="width: 80%; padding: 5px; margin-left: 30px;">
                         <option value="">-- Select Priest --</option>
                         <?php
@@ -640,17 +642,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <small id="addPriestIDError" class="error-message hidden" style="margin-left: 30px;">Priest selection is required.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="addDate" style="margin-left: 55px;">Date:</label><br>
+                    <label for="addDate" style="margin-left: 55px;">Date:
+                        <span style="color: red;">*</span>
+                    </label><br>
                     <input type="date" id="addDate" name="Date" style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="addDateError" class="error-message hidden" style="margin-left: 55px;">Date is required and must be today or in the future.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="addTime" style="margin-left: 30px;">Time:</label><br>
+                    <label for="addTime" style="margin-left: 30px;">Time:
+                        <span style="color: red;">*</span>
+                    </label><br>
                     <input type="time" id="addTime" name="Time" style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="addTimeError" class="error-message hidden" style="margin-left: 30px;">Time is required.</small>
                 </div>
                 <div style="flex: 1 2 45%;">
-                    <label for="addLocation" style="margin-left: 55px;">Location:</label><br>
+                    <label for="addLocation" style="margin-left: 55px;">Location:
+                        <span style="color: red;">*</span>
+                    </label><br>
                     <input type="text" id="addLocation" name="Location" placeholder="Enter mass location" style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="addLocationError" class="error-message hidden" style="margin-left: 55px;">Location is required.</small>
                 </div>
@@ -675,7 +683,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="text" id="updateScheduleID" name="ScheduleID" readonly style="width: 80%; padding: 5px; margin-left: 55px; background-color: #e9e9e9;">
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="updatePriestID" style="margin-left: 30px;">Select Priest:</label><br>
+                    <label for="updatePriestID" style="margin-left: 30px;">Select Priest:
+                        <span style="color: red;">*</span>
+                    </label><br>
                     <select id="updatePriestID" name="PriestID" style="width: 80%; padding: 5px; margin-left: 30px;">
                         <option value="">-- Select Priest --</option>
                         <?php
@@ -695,17 +705,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <small id="updatePriestIDError" class="error-message hidden" style="margin-left: 30px;">Priest selection is required.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="updateDate" style="margin-left: 55px;">Date:</label><br>
+                    <label for="updateDate" style="margin-left: 55px;">Date:
+                        <span style="color: red;">*</span>
+                    </label><br>
                     <input type="date" id="updateDate" name="Date" style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="updateDateError" class="error-message hidden" style="margin-left: 55px;">Date is required and must be today or in the future.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="updateTime" style="margin-left: 30px;">Time:</label><br>
+                    <label for="updateTime" style="margin-left: 30px;">Time:
+                        <span style="color: red;">*</span>
+                    </label><br>
                     <input type="time" id="updateTime" name="Time" style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="updateTimeError" class="error-message hidden" style="margin-left: 30px;">Time is required.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="updateLocation" style="margin-left: 55px;">Location:</label><br>
+                    <label for="updateLocation" style="margin-left: 55px;">Location:
+                        <span style="color: red;">*</span>
+                    </label><br>
                     <input type="text" id="updateLocation" name="Location" placeholder="Enter mass location" style="width: 39.9%; padding: 5px; margin-left: 55px;">
                     <small id="updateLocationError" class="error-message hidden" style="margin-left: 55px;">Location is required.</small>
                 </div>

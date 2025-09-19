@@ -512,7 +512,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title><?php echo $pageTitle; ?></title>
     <link rel="icon" href="/imagess/sacred.png">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="burialStyle.css?v=11"> <!-- Make a CSS file for burial -->
+    <link rel="stylesheet" href="burialStyle.css?v=12"> <!-- Make a CSS file for burial -->
     <link rel="stylesheet" href="responsive.css?v=12">
 </head>
 <body>
@@ -789,69 +789,91 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <!-- Burial Form Fields -->
 
                 <div style="flex: 1 1 45%;">
-                    <label for="ClientID" style="margin-left: 55px;">Client ID:</label><br>
+                    <label for="ClientID" style="margin-left: 55px;">Client ID:
+                         <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="addClientID" name="ClientID" required style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="addClientIDError" class="error-message" style="margin-left: 55px;">Client ID must be a number.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="OneImmediateFamily" style="margin-left: 30px;">First Immediate Family:</label><br>
+                    <label for="OneImmediateFamily" style="margin-left: 30px;">First Immediate Family:
+                            <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="addOneImmediateFamily" name="OneImmediateFamily" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="addOneImmediateFamilyError" class="error-message" style="margin-left: 30px;">Name is required.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="MonthDayOfDeath" style="margin-left: 55px;">Month & Day Of Death:</label><br>
+                    <label for="MonthDayOfDeath" style="margin-left: 55px;">Month & Day Of Death:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text"  id="addMonthDayOfDeath" name="MonthDayOfDeath" required style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="addMonthDayOfDeathError" class="error-message" style="margin-left: 55px;">Month and day of death is required.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="OneResidence" style="margin-left: 30px;">First Immediate Family Residence:</label><br>
+                    <label for="OneResidence" style="margin-left: 30px;">First Immediate Family Residence:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="addOneResidence" name="OneResidence" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="addOneResidenceError" class="error-message" style="margin-left: 30px;">Residence is required.</small>
                 </div>
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="YearOfDeath" style="margin-left: 55px;">Year Of Death:</label><br>
+                    <label for="YearOfDeath" style="margin-left: 55px;">Year Of Death:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="addYearOfDeath" name="YearOfDeath" required style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="addYearOfDeathError" class="error-message" style="margin-left: 55px;">Year of death is required.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="TwoImmediateFamily" style="margin-left: 30px;">Second Immediate Family:</label><br>
+                    <label for="TwoImmediateFamily" style="margin-left: 30px;">Second Immediate Family:
+                         <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="addTwoImmediateFamily" name="TwoImmediateFamily" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="addTwoImmediateFamilyError" class="error-message" style="margin-left: 30px;">Name is required.</small>
                 </div>
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="MonthDayOfBurial" style="margin-left: 55px;">Month & Day Of Burial:</label><br>
+                    <label for="MonthDayOfBurial" style="margin-left: 55px;">Month & Day Of Burial:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="addMonthDayOfBurial" name="MonthDayOfBurial" required style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="addMonthDayOfBurialError" class="error-message" style="margin-left: 55px;">Month and day of burial is required.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="TwoResidence" style="margin-left: 30px;">Second Immediate Family Residence:</label><br>
+                    <label for="TwoResidence" style="margin-left: 30px;">Second Immediate Family Residence:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text"  id="addTwoResidence" name="TwoResidence" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="addTwoResidenceError" class="error-message" style="margin-left: 30px;">Residence is required.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="YearOfBurial" style="margin-left: 55px;">Year Of Burial:</label><br>
+                    <label for="YearOfBurial" style="margin-left: 55px;">Year Of Burial:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="addYearOfBurial" name="YearOfBurial" required style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="addYearOfBurialError" class="error-message" style="margin-left: 55px;">Year of burial is required.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="Sacraments" style="margin-left: 30px;">Sacraments:</label><br>
+                    <label for="Sacraments" style="margin-left: 30px;">Sacraments:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="addSacraments" name="Sacraments" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="addSacramentsError" class="error-message" style="margin-left: 30px;">Sacraments is required.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="OneStatus" style="margin-left: 55px;">Civil Status:</label><br>
+                    <label for="OneStatus" style="margin-left: 55px;">Civil Status:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <select id="addOneStatus" name="OneStatus" required style="width: 80%; padding: 5px; margin-left: 55px;">
                         <option value="">-- Select Civil Status --</option>
                         <option value="Single">Single</option>
@@ -864,25 +886,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="CauseOFDeath" style="margin-left: 30px;">Cause Of Death:</label><br>
+                    <label for="CauseOFDeath" style="margin-left: 30px;">Cause Of Death:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="addCauseOFDeath" name="CauseOFDeath" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="addCauseOFDeathError" class="error-message" style="margin-left: 30px;">Cause of death is required.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="TwoStatus" style="margin-left: 55px;">Age:</label><br>
+                    <label for="TwoStatus" style="margin-left: 55px;">Age:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="number" id="addTwoStatus" name="TwoStatus" required style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="addTwoStatusError" class="error-message" style="margin-left: 55px;">Age is required.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="PlaceOfBurial" style="margin-left: 30px;">Place Of Burial:</label><br>
+                    <label for="PlaceOfBurial" style="margin-left: 30px;">Place Of Burial:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="addPlaceOfBurial" name="PlaceOfBurial" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="addPlaceOfBurialError" class="error-message" style="margin-left: 30px;">Place of burial is required.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="PriestID" style="margin-left: 55px;">Select Priest:</label><br>
+                    <label for="PriestID" style="margin-left: 55px;">Select Priest:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <select id="addPriestID" name="PriestID" required style="width: 80%; padding: 5px; margin-left: 55px;">
                         <option value="">-- Select Priest --</option>
                         <?php
@@ -946,78 +976,102 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateOneImmediateFamily" style="margin-left: 30px;">First Immediate Family:</label><br>
+                    <label for="updateOneImmediateFamily" style="margin-left: 30px;">First Immediate Family:
+                         <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updateOneImmediateFamily" name="OneImmediateFamily" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="updateOneImmediateFamilyError" class="error-message hidden" style="margin-left: 30px;">Name is required.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateClientID" style="margin-left: 55px;">Client ID:</label><br>
+                    <label for="updateClientID" style="margin-left: 55px;">Client ID:
+                            <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updateClientID" name="ClientID" required style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="updateClientIDError" class="error-message hidden" style="margin-left: 55px;">Client ID must be a number.</small>
                 </div>
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateOneResidence" style="margin-left: 30px;">First Immediate Family Residence:</label><br>
+                    <label for="updateOneResidence" style="margin-left: 30px;">First Immediate Family Residence:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updateOneResidence" name="OneResidence" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="updateOneResidenceError" class="error-message hidden" style="margin-left: 30px;">Residence is required..</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateMonthDayOfDeath" style="margin-left: 55px;">Month & Day Of Death:</label><br>
+                    <label for="updateMonthDayOfDeath" style="margin-left: 55px;">Month & Day Of Death:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updateMonthDayOfDeath" name="MonthDayOfDeath" required style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="updateMonthDayOfDeathError" class="error-message hidden" style="margin-left: 55px;">Month and day of death is required.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateTwoImmediateFamily" style="margin-left: 30px;">Second Immediate Family:</label><br>
+                    <label for="updateTwoImmediateFamily" style="margin-left: 30px;">Second Immediate Family:
+                            <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updateTwoImmediateFamily" name="TwoImmediateFamily" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="updateTwoImmediateFamilyError" class="error-message hidden" style="margin-left: 30px;">Name is required.</small>
                 </div>
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateYearOfDeath" style="margin-left: 55px;">Year Of Death:</label><br>
+                    <label for="updateYearOfDeath" style="margin-left: 55px;">Year Of Death:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updateYearOfDeath" name="YearOfDeath" required style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="updateYearOfDeathError" class="error-message hidden" style="margin-left: 55px;">Year of death is required.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateTwoResidence" style="margin-left: 30px;">Second Immediate Family Residence:</label><br>
+                    <label for="updateTwoResidence" style="margin-left: 30px;">Second Immediate Family Residence:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updateTwoResidence" name="TwoResidence" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="updateTwoResidenceError" class="error-message hidden" style="margin-left: 30px;">Residence is required.</small>
                 </div>
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateMonthDayOfBurial" style="margin-left: 55px;">Month & Day Of Burial:</label><br>
+                    <label for="updateMonthDayOfBurial" style="margin-left: 55px;">Month & Day Of Burial:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updateMonthDayOfBurial" name="MonthDayOfBurial" required style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="updateMonthDayOfBurialError" class="error-message hidden" style="margin-left: 55px;">Month and day of burial is required.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateSacraments" style="margin-left: 30px;">Sacraments:</label><br>
+                    <label for="updateSacraments" style="margin-left: 30px;">Sacraments:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updateSacraments" name="Sacraments" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="updateSacramentsError" class="error-message hidden" style="margin-left: 30px;">Sacraments is required.</small>
                 </div>
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateYearOfBurial" style="margin-left: 55px;">Year Of Burial:</label><br>
+                    <label for="updateYearOfBurial" style="margin-left: 55px;">Year Of Burial:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id ="updateYearOfBurial" name="YearOfBurial" required style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="updateYearOfBurialError" class="error-message hidden" style="margin-left: 55px;">Year of burial is required.</small>
                 </div>
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateCauseOFDeath" style="margin-left: 30px;">Cause Of Death:</label><br>
+                    <label for="updateCauseOFDeath" style="margin-left: 30px;">Cause Of Death:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updateCauseOFDeath" name="CauseOFDeath" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="updateCauseOFDeathError" class="error-message hidden" style="margin-left: 30px;">Cause of death is required.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateOneStatus" style="margin-left: 55px;">Civil Status:</label><br>
+                    <label for="updateOneStatus" style="margin-left: 55px;">Civil Status:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <select id="updateOneStatus" name="OneStatus" required style="width: 80%; padding: 5px; margin-left: 55px;">
                         <option value="">-- Select Civil Status --</option>
                         <option value="Single">Single</option>
@@ -1031,20 +1085,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updatePlaceOfBurial" style="margin-left: 30px;">Place Of Burial:</label><br>
+                    <label for="updatePlaceOfBurial" style="margin-left: 30px;">Place Of Burial:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updatePlaceOfBurial" name="PlaceOfBurial" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="updatePlaceOfBurialError" class="error-message hidden" style="margin-left: 30px;">Place of burial is required.</small>
                 </div>
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateTwoStatus" style="margin-left: 55px;">Age:</label><br>
+                    <label for="updateTwoStatus" style="margin-left: 55px;">Age:
+                         <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="number" id="updateTwoStatus" name="TwoStatus" required style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="updateTwoStatusError" class="error-message hidden" style="margin-left: 55px;">Age is required.</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updatePriestID" style="margin-left: 30px;">Select Priest:</label><br>
+                    <label for="updatePriestID" style="margin-left: 30px;">Select Priest:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <select name="PriestID" id="updatePriestID" required style="width: 80%; padding: 5px; margin-left: 30px;">
                         <option value="">-- Select Priest --</option>
                         <?php
