@@ -183,4 +183,73 @@ body {
 #slide1, #slide2, #slide3 {
     background: none;
 }
+
+
+/* === Slider Arrows === */
+.slider-arrow {
+  position: absolute;
+  top: 60%; /* center vertically */
+  transform: translateY(-60%);
+  font-size: 3rem;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.6);
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 20;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.slider-arrow:hover {
+  color: rgba(255, 255, 255, 1);
+  transform: translateY(-50%) scale(1.2);
+}
+
+
+/* Prevent green background on click/focus */
+.slider-arrow:focus,
+.slider-arrow:active {
+  background: transparent !important;
+  color: rgba(255,255,255,0.8);
+  outline: none !important;
+}
+
+/* Left arrow */
+#prevArrow {
+  left: -60px; /* adjust spacing from slider */
+}
+
+/* Right arrow */
+#nextArrow {
+  right: -60px; /* adjust spacing from slider */
+}
+
+
+.slider-indicators {
+  position: absolute;
+  bottom: -45px; /* place under the slider */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 15;
+}
+
+
+/* indicator appearance */
+.slider-indicators .indicator {
+  width: 20px;
+  height: 3px;
+  border-radius: 23%;
+  background-color: rgba(255, 255, 255, 0.45);
+  transition: transform 0.18s ease, background-color 0.18s ease;
+}
+
+/* active dot */
+.slider-indicators .indicator.active {
+  background-color: #ffffff;
+  transform: scale(1.35);
+}
 /*--- carousel [end] ---*/
