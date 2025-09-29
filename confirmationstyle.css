@@ -979,33 +979,22 @@ input[type="text"]{ /* text field */
 /*--- choose certificate dropdown animation [end] ---*/
 
 
-/* Add this style for error messages */
-.error-message.hidden {
-    color: red;
-    font-size: 0.8em;
-    display: none; /* or inline-block */
-    margin-top: 2px;
-    margin-bottom: 5px;
-}
 .hidden {
     display: none;
 }
-/* Style for invalid inputs */
-input:focus:invalid, select:focus:invalid {
-    border: 2px solid red !important; /* Use important to override default modal styles if needed */
+.error-message {
+    color: gray;
+    font-size: 0.8em;
+    display: block; /* Ensures it takes its own line if needed */
 }
-input:focus:valid, select:focus:valid {
+/* Optional: Style for valid/invalid inputs */
+input.valid, select.valid, textarea.valid {
     border: 2px solid green !important;
 }
-/* Add padding bottom to field containers if needed for error messages */
-.modal-content > div > div {
-    padding-bottom: 15px; /* Give some space for the error message */
+input.invalid, select.invalid, textarea.invalid {
+    border: 2px solid red !important;
 }
-/* Adjust padding if you want error below input, not touching it */
-.modal-content > div > div input,
-.modal-content > div > div select {
-    margin-bottom: 3px; /* Space between input and error */
-}
+
 
 /* start filter button*/
 /* Add to confirmationstyle.css or a shared stylesheet */

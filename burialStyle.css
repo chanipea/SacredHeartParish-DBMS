@@ -775,7 +775,7 @@ input[type="text"]{ /* text field */
     display: none;
 }
 .error-message {
-    color: red;
+    color: gray;
     font-size: 0.8em;
     display: block; /* Ensures it takes its own line if needed */
 }

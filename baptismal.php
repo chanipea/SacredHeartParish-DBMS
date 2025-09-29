@@ -471,7 +471,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title><?php echo $pageTitle; ?></title>
     <link rel="icon" href="imagess/sacred.png">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="baptismalStyle.css?v=13">
+    <link rel="stylesheet" href="baptismalStyle.css?v=151">
     <!-- Add these two lines for responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="responsive.css?v=9">
@@ -751,7 +751,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="BaptismYear" style="margin-left: 55px;">Baptism Year:</label><br>
+                    <label for="BaptismYear" class="required-field-label" style="margin-left: 55px;">Baptism Year:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <div style="margin-left: 55px;">
                     <input type="text"  id="addBaptismYear" name="BaptismYear" required style="width: 80%; padding: 5px;">
                     <small id="addBaptismYearError" class="error-message hidden" style="margin-left: 10000px;">Baptism year is required (YYYY).</small>
@@ -759,7 +761,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                <div style="flex: 1 1 45%;">
-                    <label for="addMotherName" style="margin-left: 30px;">Mother's Name:</label><br>
+                    <label for="addMotherName" style="margin-left: 30px;">Mother's Name:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <div style="margin-left: 30px;">
                         <input type="text" id="addMotherName" name="MotherName" required style="width: 80%; padding: 5px;">
                         <small id="addMotherNameError" class="error-message hidden">Mother's name is required.</small>
@@ -767,7 +771,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="BaptismMonthDay" style="margin-left: 55px;">Baptism Month & Day:</label><br>
+                    <label for="BaptismMonthDay" style="margin-left: 55px;">Baptism Month & Day:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <div style="margin-left: 55px;">
                     <input type="text" id="addBaptismMonthDay" name="BaptismMonthDay" required style="width: 80%; padding: 5px;">
                     <small id="addBaptismMonthDayError" class="error-message hidden" style="margin-left: 55px;">Baptism month & day required (e.g., January 01).</small>
@@ -775,7 +781,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="MotherPlaceOfOrigin" style="margin-left: 30px;">Mother's Place Of Origin:</label><br>
+                    <label for="MotherPlaceOfOrigin" style="margin-left: 30px;">Mother's Place Of Origin:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <div style="margin-left: 30px;">
                     <input type="text"  id="addMotherPlaceOfOrigin" name="MotherPlaceOfOrigin" required style="width: 80%; padding: 5px;">
                     <small id="addMotherPlaceOfOriginError" class="error-message hidden" style="margin-left: 30px;">Mother's place of origin required.</small>
@@ -783,7 +791,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="ClientID" style="margin-left: 55px;">Client ID:</label><br>
+                    <label for="ClientID" style="margin-left: 55px;">Client ID:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <div style="margin-left: 55px;">
                     <input type="number" id="addClientID" name="ClientID" required style="width: 80%; padding: 5px;">
                     <small id="addClientIDError" class="error-message hidden" style="margin-left: 55px;">Client ID must be a positive number.</small>
@@ -792,7 +802,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="MotherPlaceOfResidence" style="margin-left: 30px;">Mother's Place Of Residence:</label><br>
+                    <label for="MotherPlaceOfResidence" style="margin-left: 30px;">Mother's Place Of Residence:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <div style="margin-left: 30px;">
                     <input type="text" id="addMotherPlaceOfResidence" name="MotherPlaceOfResidence" required style="width: 80%; padding: 5px;">
                     <small id="addMotherPlaceOfResidenceError" class="error-message hidden" style="margin-left: 30px;">Mother's place of residence required.</small>
@@ -800,7 +812,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                  <div style="flex: 1 1 45%;">
-                    <label for="BdayYear" style="margin-left: 55px;">Birthday Year:</label><br>
+                    <label for="BdayYear" style="margin-left: 55px;">Birthday Year:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <div style="margin-left: 55px;">
                     <input type="text" id="addBdayYear" name="BdayYear" required style="width: 80%; padding: 5px;">
                     <small id="addBdayYearError" class="error-message hidden" style="margin-left: 55px;">Birth year is required (YYYY).</small>
@@ -808,7 +822,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="OneSponsorName" style="margin-left: 30px;">One Sponsor Name:</label><br>
+                    <label for="OneSponsorName" style="margin-left: 30px;">One Sponsor Name:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <div style="margin-left: 30px;">
                     <input type="text" id="addOneSponsorName" name="OneSponsorName" required style="width: 80%; padding: 5px;">
                     <small id="addOneSponsorNameError" class="error-message hidden" style="margin-left: 30px;">First sponsor's name required.</small>
@@ -816,7 +832,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                  <div style="flex: 1 1 45%;">
-                    <label for="BdayMonthDay" style="margin-left: 55px;">Birthday Month & Day:</label><br>
+                    <label for="BdayMonthDay" style="margin-left: 55px;">Birthday Month & Day:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <div style="margin-left: 55px;">
                     <input type="text"  id="addBdayMonthDay" name="BdayMonthDay" required style="width: 80%; padding: 5px;">
                     <small id="addBdayMonthDayError" class="error-message hidden" style="margin-left: 55px;">Birth month & day required (e.g., January 01).</small>
@@ -824,7 +842,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="OneSponsorPlace" style="margin-left: 30px;">One Sponsor Place:</label><br>
+                    <label for="OneSponsorPlace" style="margin-left: 30px;">One Sponsor Place:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <div style="margin-left: 30px;">
                     <input type="text" id="addOneSponsorPlace" name="OneSponsorPlace" required style="width: 80%; padding: 5px;">
                     <small id="addOneSponsorPlaceError" class="error-message hidden" style="margin-left: 30px;">First sponsor's place required.</small>
@@ -832,7 +852,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                  <div style="flex: 1 1 45%;">
-                    <label for="Legitimacy" style="margin-left: 55px;">Legitimacy:</label><br>
+                    <label for="Legitimacy" style="margin-left: 55px;">Legitimacy:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <div style="margin-left: 55px;">
                     <select id="addLegitimacy" name="Legitimacy" required style="width: 80%; padding: 5px;">
                         <option value="">-- Select Legitimacy --</option>
@@ -846,7 +868,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
         
                 <div style="flex: 1 1 45%;">
-                    <label for="TwoSponsorName" style="margin-left: 30px;">Two Sponsor Name:</label><br>
+                    <label for="TwoSponsorName" style="margin-left: 30px;">Two Sponsor Name:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <div style="margin-left: 30px;">
                     <input type="text" id="addTwoSponsorName" name="TwoSponsorName" required style="width: 80%; padding: 5px;">
                     <small id="addTwoSponsorNameError" class="error-message hidden" style="margin-left: 30px;">Second sponsor's name required.</small>
@@ -856,7 +880,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="FatherName" style="margin-left: 55px;">Father's Name:</label><br>
+                    <label for="FatherName" style="margin-left: 55px;">Father's Name:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <div style="margin-left: 55px;">
                     <input type="text" id="addFatherName" name="FatherName" required style="width: 80%; padding: 5px;">
                     <small id="addFatherNameError" class="error-message hidden" style="margin-left: 55px;">Father's name is required.</small>
@@ -865,7 +891,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="TwoSponsorPlace" style="margin-left: 30px;">Two Sponsor Place:</label><br>
+                    <label for="TwoSponsorPlace" style="margin-left: 30px;">Two Sponsor Place:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <div style="margin-left: 30px;">
                     <input type="text"  id="addTwoSponsorPlace" name="TwoSponsorPlace" required style="width: 80%; padding: 5px;">
                     <small id="addTwoSponsorPlaceError" class="error-message hidden" style="margin-left: 30px;">Second sponsor's place required.</small>
@@ -874,7 +902,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="FatherPlaceOfOrigin" style="margin-left: 55px;">Father's Place Of Origin:</label><br>
+                    <label for="FatherPlaceOfOrigin" style="margin-left: 55px;">Father's Place Of Origin:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <div style="margin-left: 55px;">
                     <input type="text" id="addFatherPlaceOfOrigin" name="FatherPlaceOfOrigin" required style="width: 80%; padding: 5px;">
                     <small id="addFatherPlaceOfOriginError" class="error-message hidden" style="margin-left: 55px;">Father's place of origin required.</small>
@@ -890,7 +920,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="FatherPlaceOfResidence" style="margin-left: 55px;">Father's Place Of Residence:</label><br>
+                    <label for="FatherPlaceOfResidence" style="margin-left: 55px;">Father's Place Of Residence:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <div style="margin-left: 55px;">
                     <input type="text"  id="addFatherPlaceOfResidence"  name="FatherPlaceOfResidence" required style="width: 80%; padding: 5px;">
                     <small id="addFatherPlaceOfResidenceError" class="error-message hidden" style="margin-left: 55px;">Father's place of residence required.</small>
@@ -907,7 +939,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 <div style="flex: 1 1 45%;">
-                    <label for="PriestID" style="margin-left: 55px;">Select Priest:</label><br>
+                    <label for="PriestID" style="margin-left: 55px;">Select Priest:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <div style="margin-left: 55px;">
                     <select  id="addPriestID" name="PriestID" required style="width: 80%; padding: 5px;">
                         <option value="">-- Select Priest --</option>

@@ -694,10 +694,6 @@ input[type="text"]{ /* text field */
     background-color: #f2f2f2;
 }
 
-.hidden {
-    display: none;
-}
-
 .certChoose-btn {
     font-family: 'Poppins';
     background-color: #37374a;
@@ -747,15 +743,18 @@ input[type="text"]{ /* text field */
 /*--- choose certificate dropdown animation [end] ---*/
 
 /*--- style validation [start] ---*/
-.error-message {
-    color: red;
+.error-message{
+    color:gray;
     font-size: 0.85em; /* Or your preferred size */
     margin-top: 4px;  /* Adjust as needed */
-    display: block; /* If not already block by default */
+     display: block;/* If not already block by default */
 }
+
+
 .hidden {
     display: none;
 }
+
 /*--- style validation [end] ---*/
 
 /* start filter btn */

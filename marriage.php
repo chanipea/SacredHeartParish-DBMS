@@ -733,31 +733,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 90px; justify-content: space-between;">
                 <div style="flex: 1 1 45%;">
-                    <label for="addWeddingYear" style="margin-left: 30px;">Wedding Year:</label><br>
+                    <label for="addWeddingYear" style="margin-left: 30px;">Wedding Year:
+                         <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" name="WeddingYear" id="addWeddingYear" required style="width: 80%; padding: 5px; margin-left: 30px;">
-                    <small id="addWeddingYearError" class="error-message hidden" style="margin-left: 30px;"></small>
+                    <small id="addWeddingYearError" class="error-message hidden" style="margin-left: 30px; color:gray"></small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="addWeddingMonthDay" style="margin-left: 55px;">Wedding Month & Day:</label><br>
+                    <label for="addWeddingMonthDay" style="margin-left: 55px;">Wedding Month & Day:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" name="WeddingMonthDay" id="addWeddingMonthDay" required style="width: 80%; padding: 5px; margin-left: 55px;" placeholder="Example: January 1">
-                    <small id="addWeddingMonthDayError" class="error-message hidden" style="margin-left: 55px;">Error</small>
+                    <small id="addWeddingMonthDayError" class="error-message hidden" style="margin-left: 55px; color:gray"></small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="addGroomClientID" style="margin-left: 30px;">Groom's Client ID:</label><br>
+                    <label for="addGroomClientID" style="margin-left: 30px;">Groom's Client ID:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" name="GroomClientID" id="addGroomClientID" required style="width: 80%; padding: 5px; margin-left: 30px;">
-                    <small id="addGroomClientIDError" class="error-message hidden" style="margin-left: 30px;">Error</small>
+                    <small id="addGroomClientIDError" class="error-message hidden" style="margin-left: 30px; color:gray"></small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="addBrideClientID" style="margin-left: 55px;">Bride's Client ID:</label><br>
+                    <label for="addBrideClientID" style="margin-left: 55px;">Bride's Client ID:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" name="BrideClientID" id="addBrideClientID" required style="width: 80%; padding: 5px; margin-left: 55px;">
-                    <small id="addBrideClientIDError" class="error-message hidden" style="margin-left: 55px;">Error</small>
+                    <small id="addBrideClientIDError" class="error-message hidden" style="margin-left: 55px;color:gray"></small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="addGroomStatus" style="margin-left: 30px;">Groom's Status:</label><br>
+                    <label for="addGroomStatus" style="margin-left: 30px;">Groom's Status:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <select name="GroomStatus" id="addGroomStatus" required style="width: 80%; padding: 5px; margin-left: 30px;">
                         <option value="">-- Select Civil Status --</option><option value="Single">Single</option>
                         <option value="Married">Married</option>
@@ -765,41 +775,70 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <option value="Separated">Separated</option>
                         <option value="Widowed">Widowed</option>
                     </select>
-                    <small id="addGroomStatusError" class="error-message hidden" style="margin-left: 30px;">Error</small>
+                    <small id="addGroomStatusError" class="error-message hidden" style="margin-left: 30px;color:gray"></small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="addBrideStatus" style="margin-left: 55px;">Bride's Status:</label><br>
+                    <label for="addBrideStatus" style="margin-left: 55px;">Bride's Status:
+                        <span class="required-asterisk" style="color:red">*</span>
+                    </label><br>
                     <select name="BrideStatus" id="addBrideStatus" required style="width: 80%; padding: 5px; margin-left: 55px;">
                         <option value="">-- Select Civil Status --</option><option value="Single">Single</option>
                         <option value="Married">Married</option><option value="Divorced">Divorced</option>
                         <option value="Separated">Separated</option><option value="Widowed">Widowed</option>
                     </select>
-                    <small id="addBrideStatusError" class="error-message hidden" style="margin-left: 55px;">Error</small>
+                    <small id="addBrideStatusError" class="error-message hidden" style="margin-left: 55px;color:gray">Error</small>
                 </div>
 
-                <div style="flex: 1 1 45%;"><label for="addGroomAge" style="margin-left: 30px;">Groom's Age:</label><br><input type="number" name="GroomAge" id="addGroomAge" required style="width: 80%; padding: 5px; margin-left: 30px;"><small id="addGroomAgeError" class="error-message hidden" style="margin-left: 30px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="addBrideAge" style="margin-left: 55px;">Bride's Age:</label><br><input type="number" name="BrideAge" id="addBrideAge" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="addBrideAgeError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="addGroomCity" style="margin-left: 30px;">Groom's City:</label><br><input type="text" name="GroomCity" id="addGroomCity" required style="width: 80%; padding: 5px; margin-left: 30px;"><small id="addGroomCityError" class="error-message hidden" style="margin-left: 30px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="addBrideCity" style="margin-left: 55px;">Bride's City:</label><br><input type="text" name="BrideCity" id="addBrideCity" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="addBrideCityError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="addGroomAddress" style="margin-left: 30px;">Groom's Address:</label><br><input type="text" name="GroomAddress" id="addGroomAddress" required style="width: 80%; padding: 5px; margin-left: 30px;"><small id="addGroomAddressError" class="error-message hidden" style="margin-left: 30px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="addBrideAddress" style="margin-left: 55px;">Bride's Address:</label><br><input type="text" name="BrideAddress" id="addBrideAddress" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="addBrideAddressError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="addGroomParentsName" style="margin-left: 30px;">Groom's Parents' Name:</label><br><input type="text" name="GroomParentsName" id="addGroomParentsName" required style="width: 80%; padding: 5px; margin-left: 30px;"><small id="addGroomParentsNameError" class="error-message hidden" style="margin-left: 30px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="addBrideParentsName" style="margin-left: 55px;">Bride's Parents' Name:</label><br><input type="text" name="BrideParentsName" id="addBrideParentsName" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="addBrideParentsNameError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="addGroomWitnessOneName" style="margin-left: 30px;">Groom's Witness Name:</label><br><input type="text" name="GroomWitnessOneName" id="addGroomWitnessOneName" required style="width: 80%; padding: 5px; margin-left: 30px;"><small id="addGroomWitnessOneNameError" class="error-message hidden" style="margin-left: 30px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="addBrideWitnessOneName" style="margin-left: 55px;">Bride's Witness Name:</label><br><input type="text" name="BrideWitnessOneName" id="addBrideWitnessOneName" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="addBrideWitnessOneNameError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="addGroomWitnessOneAddress" style="margin-left: 30px;">Groom's Witness Address:</label><br><input type="text" name="GroomWitnessOneAddress" id="addGroomWitnessOneAddress" required style="width: 80%; padding: 5px; margin-left: 30px;"><small id="addGroomWitnessOneAddressError" class="error-message hidden" style="margin-left: 30px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="addBrideWitnessOneAddress" style="margin-left: 55px;">Bride's Witness Address:</label><br><input type="text" name="BrideWitnessOneAddress" id="addBrideWitnessOneAddress" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="addBrideWitnessOneAddressError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="addPriestID" style="margin-left: 30px;">Select Priest:</label><br><select name="PriestID" id="addPriestID" required style="width: 80%; padding: 5px; margin-left: 30px;"><option value="">-- Select Priest --</option><?php $connPriestAdd = new mysqli("localhost", "root", "", "SacredHeartParish_DBMS"); if (!$connPriestAdd->connect_error) {$connPriestAdd->set_charset("utf8mb4"); $priestSql = "SELECT PriestID, FullName, ContactInfo, Status FROM Priest ORDER BY FullName"; $priestResult = $connPriestAdd->query($priestSql); if ($priestResult->num_rows > 0) {while($priest = $priestResult->fetch_assoc()) {$status = $priest["Status"] ?? "Active"; $contact = $priest["ContactInfo"] ?? "No contact info"; echo "<option value='" . htmlspecialchars($priest["PriestID"]) . "'>" . htmlspecialchars($priest["FullName"]) . " | " . htmlspecialchars($contact) . " | " . htmlspecialchars($status) . "</option>";}} $connPriestAdd->close();} ?></select><small id="addPriestIDError" class="error-message hidden" style="margin-left: 30px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="addStipend" style="margin-left: 55px;">Stipend (Optional):</label><br><input type="number" name="Stipend" id="addStipend" style="width: 80%; padding: 5px; margin-left: 55px;"><small id="addStipendError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="addGroomAge" style="margin-left: 30px;">Groom's Age:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="number" name="GroomAge" id="addGroomAge" required style="width: 80%; padding: 5px; margin-left: 30px;"><small id="addGroomAgeError" class="error-message hidden" style="margin-left: 30px;color:gray">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="addBrideAge" style="margin-left: 55px;">Bride's Age:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="number" name="BrideAge" id="addBrideAge" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="addBrideAgeError" class="error-message hidden" style="margin-left: 55px;color:gray">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="addGroomCity" style="margin-left: 30px;">Groom's City:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" name="GroomCity" id="addGroomCity" required style="width: 80%; padding: 5px; margin-left: 30px;"><small id="addGroomCityError" class="error-message hidden" style="margin-left: 30px;color:gray">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="addBrideCity" style="margin-left: 55px;">Bride's City:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" name="BrideCity" id="addBrideCity" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="addBrideCityError" class="error-message hidden" style="margin-left: 55px;color:gray">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="addGroomAddress" style="margin-left: 30px;">Groom's Address:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" name="GroomAddress" id="addGroomAddress" required style="width: 80%; padding: 5px; margin-left: 30px;"><small id="addGroomAddressError" class="error-message hidden" style="margin-left: 30px;color:gray">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="addBrideAddress" style="margin-left: 55px;">Bride's Address:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" name="BrideAddress" id="addBrideAddress" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="addBrideAddressError" class="error-message hidden" style="margin-left: 55px;color:gray">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="addGroomParentsName" style="margin-left: 30px;">Groom's Parents' Name:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" name="GroomParentsName" id="addGroomParentsName" required style="width: 80%; padding: 5px; margin-left: 30px;"><small id="addGroomParentsNameError" class="error-message hidden" style="margin-left: 30px;color:gray">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="addBrideParentsName" style="margin-left: 55px;">Bride's Parents' Name:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" name="BrideParentsName" id="addBrideParentsName" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="addBrideParentsNameError" class="error-message hidden" style="margin-left: 55px;color:gray">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="addGroomWitnessOneName" style="margin-left: 30px;">Groom's Witness Name:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" name="GroomWitnessOneName" id="addGroomWitnessOneName" required style="width: 80%; padding: 5px; margin-left: 30px;"><small id="addGroomWitnessOneNameError" class="error-message hidden" style="margin-left: 30px;color:gray">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="addBrideWitnessOneName" style="margin-left: 55px;">Bride's Witness Name:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" name="BrideWitnessOneName" id="addBrideWitnessOneName" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="addBrideWitnessOneNameError" class="error-message hidden" style="margin-left: 55px;color:gray">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="addGroomWitnessOneAddress" style="margin-left: 30px;">Groom's Witness Address:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" name="GroomWitnessOneAddress" id="addGroomWitnessOneAddress" required style="width: 80%; padding: 5px; margin-left: 30px;"><small id="addGroomWitnessOneAddressError" class="error-message hidden" style="margin-left: 30px;color:gray">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="addBrideWitnessOneAddress" style="margin-left: 55px;">Bride's Witness Address:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" name="BrideWitnessOneAddress" id="addBrideWitnessOneAddress" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="addBrideWitnessOneAddressError" class="error-message hidden" style="margin-left: 55px;color:gray">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="addPriestID" style="margin-left: 30px;">Select Priest:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><select name="PriestID" id="addPriestID" required style="width: 80%; padding: 5px; margin-left: 30px;"><option value="">-- Select Priest --</option><?php $connPriestAdd = new mysqli("localhost", "root", "", "SacredHeartParish_DBMS"); if (!$connPriestAdd->connect_error) {$connPriestAdd->set_charset("utf8mb4"); $priestSql = "SELECT PriestID, FullName, ContactInfo, Status FROM Priest ORDER BY FullName"; $priestResult = $connPriestAdd->query($priestSql); if ($priestResult->num_rows > 0) {while($priest = $priestResult->fetch_assoc()) {$status = $priest["Status"] ?? "Active"; $contact = $priest["ContactInfo"] ?? "No contact info"; echo "<option value='" . htmlspecialchars($priest["PriestID"]) . "'>" . htmlspecialchars($priest["FullName"]) . " | " . htmlspecialchars($contact) . " | " . htmlspecialchars($status) . "</option>";}} $connPriestAdd->close();} ?></select><small id="addPriestIDError" class="error-message hidden" style="margin-left: 30px;color:gray">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="addStipend" style="margin-left: 55px;">Stipend (Optional):
+                </label><br><input type="number" name="Stipend" id="addStipend" style="width: 80%; padding: 5px; margin-left: 55px;"><small id="addStipendError" class="error-message hidden" style="margin-left: 55px;color:gray">Error</small></div>
 
                 <div style="flex: 1 1 96%;">
                     <label for="addObservando" style="margin-left: 30px;">Observando:</label><br>
                     <textarea name="Observando" id="addObservando" style="width: 93%; min-height: 60px; padding: 5px; margin-left: 30px; resize: none;" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';"></textarea>
-                    <small id="addObservandoError" class="error-message hidden" style="margin-left: 30px;">Error</small>
+                    <small id="addObservandoError" class="error-message hidden" style="margin-left: 30px;color:gray">Error</small>
                 </div>
             </div>
-            <div class="modal-footer" style="text-align: center; margin-top: 30px;"><button type="submit" name="save_marriage" id="addMarriageSubmitButton" style="background-color: #28a745; color: white; padding: 12px 30px; border: none; border-radius: 5px; font-size: 16px;">+ Add Record</button></div>
+            <div class="modal-footer" style="text-align: center; margin-top: 30px;"><button type="submit" name="save_marriage" id="addMarriageSubmitButton" style="background-color: #28a745; color: white; padding: 12px 30px; border: none; border-radius: 5px; font-size: 16px; ">+ Add Record</button></div>
         </form>
     </div>
     <!-- Add Modal [end] -->
@@ -813,27 +852,65 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 90px; justify-content: space-between;">
                 <div style="flex: 1 1 45%;"><label for="updateWeddingID" style="margin-left: 55px;">Wedding ID (Record ID):</label><br><input type="text" id="updateWeddingID" name="WeddingID" readonly style="width: 80%; padding: 5px; margin-left: 55px; background-color: #e9e9e9;"></div>
-                <div style="flex: 1 1 45%;"><label for="updateWeddingYear" style="margin-left: 55px;">Wedding Year:</label><br><input type="text" id="updateWeddingYear" name="WeddingYear" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateWeddingYearError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="updateWeddingMonthDay" style="margin-left: 55px;">Wedding Month & Day:</label><br><input type="text" id="updateWeddingMonthDay" name="WeddingMonthDay" required style="width: 80%; padding: 5px; margin-left: 55px;" placeholder="Example: August 1"><small id="updateWeddingMonthDayError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="updateGroomClientID" style="margin-left: 55px;">Groom's Client ID:</label><br><input type="text" id="updateGroomClientID" name="GroomClientID" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateGroomClientIDError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="updateBrideClientID" style="margin-left: 55px;">Bride's Client ID:</label><br><input type="text" id="updateBrideClientID" name="BrideClientID" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateBrideClientIDError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateWeddingYear" style="margin-left: 55px;">Wedding Year:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" id="updateWeddingYear" name="WeddingYear" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateWeddingYearError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateWeddingMonthDay" style="margin-left: 55px;">Wedding Month & Day:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" id="updateWeddingMonthDay" name="WeddingMonthDay" required style="width: 80%; padding: 5px; margin-left: 55px;" placeholder="Example: August 1"><small id="updateWeddingMonthDayError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateGroomClientID" style="margin-left: 55px;">Groom's Client ID:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" id="updateGroomClientID" name="GroomClientID" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateGroomClientIDError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateBrideClientID" style="margin-left: 55px;">Bride's Client ID:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" id="updateBrideClientID" name="BrideClientID" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateBrideClientIDError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
                 <!-- <div style="flex: 1 1 45%;"><label for="updateGroomFullName" style="margin-left: 55px;">Groom's Full Name:</label><br><input type="text" id="updateGroomFullName" name="GroomFullName" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateGroomFullNameError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
                 <div style="flex: 1 1 45%;"><label for="updateBrideFullName" style="margin-left: 55px;">Bride's Full Name:</label><br><input type="text" id="updateBrideFullName" name="BrideFullName" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateBrideFullNameError" class="error-message hidden" style="margin-left: 55px;">Error</small></div> -->
-                <div style="flex: 1 1 45%;"><label for="updateGroomStatus" style="margin-left: 55px;">Groom's Status:</label><br><select id="updateGroomStatus" name="GroomStatus" required style="width: 80%; padding: 5px; margin-left: 55px;"><option value="">-- Select Civil Status --</option><option value="Single">Single</option><option value="Married">Married</option><option value="Divorced">Divorced</option><option value="Separated">Separated</option><option value="Widowed">Widowed</option></select><small id="updateGroomStatusError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="updateBrideStatus" style="margin-left: 55px;">Bride's Status:</label><br><select id="updateBrideStatus" name="BrideStatus" required style="width: 80%; padding: 5px; margin-left: 55px;"><option value="">-- Select Civil Status --</option><option value="Single">Single</option><option value="Married">Married</option><option value="Divorced">Divorced</option><option value="Separated">Separated</option><option value="Widowed">Widowed</option></select><small id="updateBrideStatusError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="updateGroomAge" style="margin-left: 55px;">Groom's Age:</label><br><input type="number" id="updateGroomAge" name="GroomAge" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateGroomAgeError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="updateBrideAge" style="margin-left: 55px;">Bride's Age:</label><br><input type="number" id="updateBrideAge" name="BrideAge" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateBrideAgeError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="updateGroomCity" style="margin-left: 55px;">Groom's City:</label><br><input type="text" id="updateGroomCity" name="GroomCity" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateGroomCityError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="updateBrideCity" style="margin-left: 55px;">Bride's City:</label><br><input type="text" id="updateBrideCity" name="BrideCity" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateBrideCityError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="updateGroomAddress" style="margin-left: 55px;">Groom's Address:</label><br><input type="text" id="updateGroomAddress" name="GroomAddress" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateGroomAddressError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="updateBrideAddress" style="margin-left: 55px;">Bride's Address:</label><br><input type="text" id="updateBrideAddress" name="BrideAddress" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateBrideAddressError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="updateGroomParentsName" style="margin-left: 55px;">Groom's Parents' Name:</label><br><input type="text" id="updateGroomParentsName" name="GroomParentsName" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateGroomParentsNameError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="updateBrideParentsName" style="margin-left: 55px;">Bride's Parents' Name:</label><br><input type="text" id="updateBrideParentsName" name="BrideParentsName" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateBrideParentsNameError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="updateGroomWitnessOneName" style="margin-left: 55px;">Groom's Witness Name:</label><br><input type="text" id="updateGroomWitnessOneName" name="GroomWitnessOneName" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateGroomWitnessOneNameError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="updateBrideWitnessOneName" style="margin-left: 55px;">Bride's Witness Name:</label><br><input type="text" id="updateBrideWitnessOneName" name="BrideWitnessOneName" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateBrideWitnessOneNameError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="updateGroomWitnessOneAddress" style="margin-left: 55px;">Groom's Witness Address:</label><br><input type="text" id="updateGroomWitnessOneAddress" name="GroomWitnessOneAddress" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateGroomWitnessOneAddressError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="updateBrideWitnessOneAddress" style="margin-left: 55px;">Bride's Witness Address:</label><br><input type="text" id="updateBrideWitnessOneAddress" name="BrideWitnessOneAddress" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateBrideWitnessOneAddressError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
-                <div style="flex: 1 1 45%;"><label for="updatePriestID" style="margin-left: 55px;">Select Priest:</label><br><select name="PriestID" id="updatePriestID" required style="width: 80%; padding: 5px; margin-left: 55px;"><option value="">-- Select Priest --</option><?php $connPriestUpdate = new mysqli("localhost", "root", "", "SacredHeartParish_DBMS"); if (!$connPriestUpdate->connect_error) {$connPriestUpdate->set_charset("utf8mb4"); $priestSql = "SELECT PriestID, FullName, ContactInfo, Status FROM Priest ORDER BY FullName"; $priestResult = $connPriestUpdate->query($priestSql); if ($priestResult->num_rows > 0) { while($priest = $priestResult->fetch_assoc()) { $status = $priest["Status"] ?? "Active"; $contact = $priest["ContactInfo"] ?? "No contact info"; echo "<option value='" . htmlspecialchars($priest["PriestID"]) . "'>" . htmlspecialchars($priest["FullName"]) . " | " . htmlspecialchars($contact) . " | " . htmlspecialchars($status) . "</option>"; }} else { echo "<option disabled>No priests found</option>"; } $connPriestUpdate->close(); } ?></select><small id="updatePriestIDError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateGroomStatus" style="margin-left: 55px;">Groom's Status:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><select id="updateGroomStatus" name="GroomStatus" required style="width: 80%; padding: 5px; margin-left: 55px;"><option value="">-- Select Civil Status --</option><option value="Single">Single</option><option value="Married">Married</option><option value="Divorced">Divorced</option><option value="Separated">Separated</option><option value="Widowed">Widowed</option></select><small id="updateGroomStatusError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateBrideStatus" style="margin-left: 55px;">Bride's Status:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><select id="updateBrideStatus" name="BrideStatus" required style="width: 80%; padding: 5px; margin-left: 55px;"><option value="">-- Select Civil Status --</option><option value="Single">Single</option><option value="Married">Married</option><option value="Divorced">Divorced</option><option value="Separated">Separated</option><option value="Widowed">Widowed</option></select><small id="updateBrideStatusError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateGroomAge" style="margin-left: 55px;">Groom's Age:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="number" id="updateGroomAge" name="GroomAge" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateGroomAgeError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateBrideAge" style="margin-left: 55px;">Bride's Age:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="number" id="updateBrideAge" name="BrideAge" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateBrideAgeError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateGroomCity" style="margin-left: 55px;">Groom's City:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" id="updateGroomCity" name="GroomCity" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateGroomCityError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateBrideCity" style="margin-left: 55px;">Bride's City:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" id="updateBrideCity" name="BrideCity" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateBrideCityError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateGroomAddress" style="margin-left: 55px;">Groom's Address:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" id="updateGroomAddress" name="GroomAddress" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateGroomAddressError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateBrideAddress" style="margin-left: 55px;">Bride's Address:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" id="updateBrideAddress" name="BrideAddress" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateBrideAddressError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateGroomParentsName" style="margin-left: 55px;">Groom's Parents' Name:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" id="updateGroomParentsName" name="GroomParentsName" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateGroomParentsNameError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateBrideParentsName" style="margin-left: 55px;">Bride's Parents' Name:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" id="updateBrideParentsName" name="BrideParentsName" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateBrideParentsNameError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateGroomWitnessOneName" style="margin-left: 55px;">Groom's Witness Name:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" id="updateGroomWitnessOneName" name="GroomWitnessOneName" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateGroomWitnessOneNameError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateBrideWitnessOneName" style="margin-left: 55px;">Bride's Witness Name:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" id="updateBrideWitnessOneName" name="BrideWitnessOneName" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateBrideWitnessOneNameError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateGroomWitnessOneAddress" style="margin-left: 55px;">Groom's Witness Address:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" id="updateGroomWitnessOneAddress" name="GroomWitnessOneAddress" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateGroomWitnessOneAddressError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updateBrideWitnessOneAddress" style="margin-left: 55px;">Bride's Witness Address:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><input type="text" id="updateBrideWitnessOneAddress" name="BrideWitnessOneAddress" required style="width: 80%; padding: 5px; margin-left: 55px;"><small id="updateBrideWitnessOneAddressError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
+                <div style="flex: 1 1 45%;"><label for="updatePriestID" style="margin-left: 55px;">Select Priest:
+                        <span class="required-asterisk" style="color:red">*</span>
+                </label><br><select name="PriestID" id="updatePriestID" required style="width: 80%; padding: 5px; margin-left: 55px;"><option value="">-- Select Priest --</option><?php $connPriestUpdate = new mysqli("localhost", "root", "", "SacredHeartParish_DBMS"); if (!$connPriestUpdate->connect_error) {$connPriestUpdate->set_charset("utf8mb4"); $priestSql = "SELECT PriestID, FullName, ContactInfo, Status FROM Priest ORDER BY FullName"; $priestResult = $connPriestUpdate->query($priestSql); if ($priestResult->num_rows > 0) { while($priest = $priestResult->fetch_assoc()) { $status = $priest["Status"] ?? "Active"; $contact = $priest["ContactInfo"] ?? "No contact info"; echo "<option value='" . htmlspecialchars($priest["PriestID"]) . "'>" . htmlspecialchars($priest["FullName"]) . " | " . htmlspecialchars($contact) . " | " . htmlspecialchars($status) . "</option>"; }} else { echo "<option disabled>No priests found</option>"; } $connPriestUpdate->close(); } ?></select><small id="updatePriestIDError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
                 <div style="flex: 1 1 45%;"><label for="updateStipend" style="margin-left: 55px;">Stipend (Optional):</label><br><input type="number" id="updateStipend" name="Stipend" style="width: 40%; padding: 5px; margin-left: 55px;"><small id="updateStipendError" class="error-message hidden" style="margin-left: 55px;">Error</small></div>
                 <div style="flex-basis: 100%;"><label for="updateObservando" style="margin-left: 55px;">Observando:</label><br><textarea id="updateObservando" name="Observando" required style="width: 90%; min-height: 60px; padding: 5px; margin-left: 55px; resize: none; box-sizing: border-box;" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';"></textarea>
                     <small id="updateObservandoError" class="error-message hidden" style="margin-left: 55px;">Error</small>

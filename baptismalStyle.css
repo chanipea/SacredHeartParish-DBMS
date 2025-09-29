@@ -719,9 +719,7 @@ input[type="text"]{ /* text field */
     background-color: #f2f2f2;
 }
 
-.hidden {
-    display: none;
-}
+
 
 .certChoose-btn {
     font-family: 'Poppins';
@@ -770,12 +768,12 @@ input[type="text"]{ /* text field */
     transform: rotate(90deg);
 }
 /*--- choose certificate dropdown animation [end] ---*/
-
+/* CSS for adding asterisk to required fields */
 .hidden {
     display: none;
 }
 .error-message {
-    color: red;
+    color: gray;
     font-size: 0.8em;
     display: block; /* Ensures it takes its own line if needed */
     margin-top: 2px;

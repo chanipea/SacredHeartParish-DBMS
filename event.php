@@ -254,7 +254,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title><?php echo $pageTitle; ?></title>
     <link rel="icon" href="/imagess/sacred.png">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="eventstyle.css?v=14">
+    <link rel="stylesheet" href="eventstyle.css?v=134">
     <!-- Add these two lines for responsiveness -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="eventResponsive.css?v=6">
@@ -488,7 +488,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 <div style="flex: 1 1 45%;" class="form-group">
-                    <label for="EventType" style="margin-left: 55px;">Event Type:</label><br>
+                    <label for="EventType" style="margin-left: 55px;">Event Type:
+                        <span style="color: red;">*</span>
+                    </label><br>
                     <input type="text" id="EventType" name="EventType" required 
                         placeholder="e.g., Baptism, Wedding, Funeral"
                         style="width: 80%; padding: 5px; margin-left: 55px;">
@@ -498,7 +500,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div style="flex: 1 1 45%;" class="form-group">
-                    <label for="Date" style="margin-left: 30px;">Date:</label><br>
+                    <label for="Date" style="margin-left: 30px;">Date:
+                        <span style="color: red;">*</span>
+                    </label><br>
                     <input type="date" id="Date" name="Date" required 
                         style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="DateError" class="error-message hidden" style="display: none; margin-left: 30px; color: red; font-size: 12px; margin-top: 5px;">
@@ -515,7 +519,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div> -->
 
                 <div style="flex: 1 1 45%;">
-                    <label for="OfficiatingPriestID" style="margin-left: 55px;">Select Priest:</label><br>
+                    <label for="OfficiatingPriestID" style="margin-left: 55px;">Select Priest:
+                        <span style="color: red;">*</span>
+                    </label><br>
                     <select id="OfficiatingPriestID" name="OfficiatingPriestID" required style="width: 39.9%; padding: 5px; margin-left: 55px;">
                         <option value="">-- Select Priest --</option>
                         <?php
@@ -603,19 +609,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateEventType" style="margin-left: 30px;">Event Type:</label><br>
+                    <label for="updateEventType" style="margin-left: 30px;">Event Type:
+                        <span style="color: red;">*</span>
+                    </label><br>
                     <input type="text" id="updateEventType" name="EventType" required style="width: 80%; padding: 5px; margin-left: 30px;">
                     <small id="updateEventTypeError" class="error-message hidden" style="display: block; margin-left: 30px; color: red; font-size: 12px; margin-top: 5px;">Event Type must be one of: Baptism, Wedding, Funeral, Confirmation</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updateDate" style="margin-left: 55px;">Date:</label><br>
+                    <label for="updateDate" style="margin-left: 55px;">Date:
+                        <span style="color: red;">*</span>
+                    </label><br>
                     <input type="date" id="updateDate" name="Date" required style="width: 80%; padding: 5px; margin-left: 55px;">
                     <small id="updateDateError" class="error-message hidden" style="display: block; margin-left: 55px; color: red; font-size: 12px; margin-top: 5px;">Date must be today or in the future</small>
                 </div>
 
                 <div style="flex: 1 1 45%;">
-                    <label for="updatePriestID" style="margin-left: 30px;">Select Priest:</label><br>
+                    <label for="updatePriestID" style="margin-left: 30px;">Select Priest:
+                        <span style="color: red;">*</span>
+                    </label><br>
                     <select name="OfficiatingPriestID" id="updatePriestID" required style="width: 80%; padding: 5px; margin-left: 30px;">
                         <option value="">-- Select Priest --</option>
                         <?php

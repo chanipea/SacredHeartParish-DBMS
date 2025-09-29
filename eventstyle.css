@@ -695,9 +695,7 @@ input[type="text"]{ /* text field */
     background-color: #f2f2f2;
 }
 
-.hidden {
-    display: none;
-}
+
 
 .certChoose-btn {
     font-family: 'Poppins';
@@ -749,12 +747,12 @@ input[type="text"]{ /* text field */
 
 /*--- style validation [start] ---*/
 .error-message {
-    color: red;
+    color:gray !important;
     font-size: 0.85em; /* Or your preferred size */
     margin-top: 4px;  /* Adjust as needed */
-    display: block; /* If not already block by default */
+    display: none; /* If not already block by default */
 }
-.hidden {
+.hidde{
     display: none;
 }
 /*--- style validation [end] ---*/

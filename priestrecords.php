@@ -331,7 +331,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Priest Records Management</title>
     <link rel="icon" href="/imagess/sacred.png">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="prieststyle.css?v=15">
+    <link rel="stylesheet" href="prieststyle.css?v=17">
      <!-- Add these two lines for responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="priestResponsive.css?v=15">
@@ -590,49 +590,65 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 90px; justify-content: space-between;">
                 <div style="flex: 1 1 45%;">
-                    <label for="addFullName" style="margin-left: 55px;">Full Name:</label><br>
+                    <label for="addFullName" style="margin-left: 55px;">Full Name:
+                        <span id="addFullNameAsterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="addFullName" name="FullName" style="width: 80%; padding: 5px; margin-left: 55px;">
-                    <small id="addFullNameError" class="error-message hidden" style="margin-left: 55px;">Full Name is required.</small>
+                    <small id="addFullNameError" class="error-message hidden" style="margin-left: 55px">Full Name is required.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="addDOB" style="margin-left: 30px;">Date of Birth:</label><br>
+                    <label for="addDOB" style="margin-left: 30px;">Date of Birth:
+                        <span id="addDOBAsterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="date" id="addDOB" name="DOB" style="width: 80%; padding: 5px; margin-left: 30px;">
-                    <small id="addDOBError" class="error-message hidden" style="margin-left: 30px;">Date of Birth is required and must be in the past.</small>
+                    <small id="addDOBError" class="error-message hidden" style="margin-left: 30px">Date of Birth is required and must be in the past.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="addContactInfo" style="margin-left: 55px;">Contact Info (PH Phone Number):</label><br>
+                    <label for="addContactInfo" class="required-field-label" style="margin-left: 55px;">Contact Info (PH Phone Number):
+                        <span id="addContactInfoAsterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="addContactInfo" name="ContactInfo" style="width: 80%; padding: 5px; margin-left: 55px;">
-                    <small id="addContactInfoError" class="error-message hidden" style="margin-left: 55px;">Philippine Phone Number is required.</small>
+                    <small id="addContactInfoError" class="error-message hidden" style="margin-left: 55px">Philippine Phone Number is required.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="addOrdinationDate" style="margin-left: 30px;">Ordination Date:</label><br>
+                    <label for="addOrdinationDate" style="margin-left: 30px;">Ordination Date:
+                        <span id="addOrdinationDateAsterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="date" id="addOrdinationDate" name="OrdinationDate" style="width: 80%; padding: 5px; margin-left: 30px;">
-                    <small id="addOrdinationDateError" class="error-message hidden" style="margin-left: 30px;">Ordination Date is required, must be in the past, and after DOB.</small>
+                    <small id="addOrdinationDateError" class="error-message hidden" style="margin-left: 30px">Ordination Date is required, must be in the past, and after DOB.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="addOrdinationLoc" style="margin-left: 55px;">Ordination Location:</label><br>
+                    <label for="addOrdinationLoc" style="margin-left: 55px;">Ordination Location:
+                        <span id="addOrdinationLocAsterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="addOrdinationLoc" name="OrdinationLoc" style="width: 80%; padding: 5px; margin-left: 55px;">
-                    <small id="addOrdinationLocError" class="error-message hidden" style="margin-left: 55px;">Ordination Location is required.</small>
+                    <small id="addOrdinationLocError" class="error-message hidden" style="margin-left: 55px">Ordination Location is required.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="addOrdainingBishop" style="margin-left: 30px;">Ordaining Bishop:</label><br>
+                    <label for="addOrdainingBishop" style="margin-left: 30px;">Ordaining Bishop:
+                        <span id="addOrdainingBishopAsterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="addOrdainingBishop" name="OrdainingBishop" style="width: 80%; padding: 5px; margin-left: 30px;">
-                    <small id="addOrdainingBishopError" class="error-message hidden" style="margin-left: 30px;">Ordaining Bishop's name is required.</small>
+                    <small id="addOrdainingBishopError" class="error-message hidden" style="margin-left: 30px">Ordaining Bishop's name is required.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="addSeminarySchool" style="margin-left: 55px;">Seminary School:</label><br>
+                    <label for="addSeminarySchool" style="margin-left: 55px;">Seminary School:
+                        <span id="addSeminarySchoolAsterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="addSeminarySchool" name="SeminarySchool" style="width: 80%; padding: 5px; margin-left: 55px;">
-                    <small id="addSeminarySchoolError" class="error-message hidden" style="margin-left: 55px;">Seminary School is required.</small>
+                    <small id="addSeminarySchoolError" class="error-message hidden" style="margin-left: 55px">Seminary School is required.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="addStatus" style="margin-left: 30px;">Status:</label><br>
+                    <label for="addStatus" style="margin-left: 30px;">Status:
+                        <span id="addStatusAsterisk" style="color:red">*</span>
+                    </label><br>
                     <select id="addStatus" name="Status" required style="width: 80%; padding: 5px; margin-left: 30px;">
                         <option value="">-- Select Status --</option>
                         <option value="Active">Active</option>
                         <option value="Retired">Retired</option>
                         <option value="On Leave">On Leave</option>
                     </select>
-                    <small id="addStatusError" class="error-message hidden" style="margin-left: 30px;">Status is required.</small>
+                    <small id="addStatusError" class="error-message hidden" style="margin-left: 30px">Status is required.</small>
                 </div>
             </div>
             <div class="modal-footer" style="text-align: center; margin-top: 60px;">
@@ -689,49 +705,65 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="text" id="updatePriestID" name="PriestID" readonly style="width: 80%; padding: 5px; margin-left: 55px; background-color: #e9e9e9;">
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="updateFullName" style="margin-left: 30px;">Full Name:</label><br>
+                    <label for="updateFullName" style="margin-left: 30px;">Full Name:
+                        <span id="updateFullNameAsterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updateFullName" name="FullName" style="width: 80%; padding: 5px; margin-left: 30px;">
-                    <small id="updateFullNameError" class="error-message hidden" style="margin-left: 30px;">Full Name is required.</small>
+                    <small id="updateFullNameError" class="error-message hidden" style="margin-left: 30px">Full Name is required.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="updateDOB" style="margin-left: 55px;">Date of Birth:</label><br>
+                    <label for="updateDOB" style="margin-left: 55px;">Date of Birth:
+                        <span id="updateDOBAsterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="date" id="updateDOB" name="DOB" style="width: 80%; padding: 5px; margin-left: 55px;">
-                    <small id="updateDOBError" class="error-message hidden" style="margin-left: 55px;">Date of Birth is required and must be in the past.</small>
+                    <small id="updateDOBError" class="error-message hidden" style="margin-left: 55px">Date of Birth is required and must be in the past.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="updateContactInfo" style="margin-left: 30px;">Contact Info (PH Phone Number):</label><br>
+                    <label for="updateContactInfo" style="margin-left: 30px;">Contact Info (PH Phone Number):
+                        <span id="updateContactInfoAsterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updateContactInfo" name="ContactInfo" style="width: 80%; padding: 5px; margin-left: 30px;">
-                    <small id="updateContactInfoError" class="error-message hidden" style="margin-left: 30px;">Philippine Phone Number is required.</small>
+                    <small id="updateContactInfoError" class="error-message hidden" style="margin-left: 30px">Philippine Phone Number is required.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="updateOrdinationDate" style="margin-left: 55px;">Ordination Date:</label><br>
+                    <label for="updateOrdinationDate" style="margin-left: 55px;">Ordination Date:
+                        <span id="updateOrdinationDateAsterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="date" id="updateOrdinationDate" name="OrdinationDate" style="width: 80%; padding: 5px; margin-left: 55px;">
-                    <small id="updateOrdinationDateError" class="error-message hidden" style="margin-left: 55px;">Ordination Date is required, must be in the past, and after DOB.</small>
+                    <small id="updateOrdinationDateError" class="error-message hidden" style="margin-left: 55px">Ordination Date is required, must be in the past, and after DOB.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="updateOrdinationLoc" style="margin-left: 30px;">Ordination Location:</label><br>
+                    <label for="updateOrdinationLoc" style="margin-left: 30px;">Ordination Location:
+                        <span id="updateOrdinationLocAsterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updateOrdinationLoc" name="OrdinationLoc" style="width: 80%; padding: 5px; margin-left: 30px;">
-                    <small id="updateOrdinationLocError" class="error-message hidden" style="margin-left: 30px;">Ordination Location is required.</small>
+                    <small id="updateOrdinationLocError" class="error-message hidden" style="margin-left: 30px">Ordination Location is required.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="updateOrdainingBishop" style="margin-left: 55px;">Ordaining Bishop:</label><br>
+                    <label for="updateOrdainingBishop" style="margin-left: 55px;">Ordaining Bishop:
+                        <span id="updateOrdainingBishopAsterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updateOrdainingBishop" name="OrdainingBishop" style="width: 80%; padding: 5px; margin-left: 55px;">
-                    <small id="updateOrdainingBishopError" class="error-message hidden" style="margin-left: 55px;">Ordaining Bishop's name is required.</small>
+                    <small id="updateOrdainingBishopError" class="error-message hidden" style="margin-left: 55px">Ordaining Bishop's name is required.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="updateSeminarySchool" style="margin-left: 30px;">Seminary School:</label><br>
+                    <label for="updateSeminarySchool" style="margin-left: 30px;">Seminary School:
+                        <span id="updateSeminarySchoolAsterisk" style="color:red">*</span>
+                    </label><br>
                     <input type="text" id="updateSeminarySchool" name="SeminarySchool" style="width: 80%; padding: 5px; margin-left: 30px;">
-                    <small id="updateSeminarySchoolError" class="error-message hidden" style="margin-left: 30px;">Seminary School is required.</small>
+                    <small id="updateSeminarySchoolError" class="error-message hidden" style="margin-left: 30px">Seminary School is required.</small>
                 </div>
                 <div style="flex: 1 1 45%;">
-                    <label for="updateStatus" style="margin-left: 55px;">Status:</label><br>
+                    <label for="updateStatus" style="margin-left: 55px;">Status:
+                        <span id="updateStatusAsterisk" style="color:red">*</span>
+                    </label><br>
                     <select id="updateStatus" name="Status" required style="width: 80%; padding: 5px; margin-left: 55px;">
                         <option value="">-- Select Status --</option>
                         <option value="Active">Active</option>
                         <option value="Retired">Retired</option>
                         <option value="On Leave">On Leave</option>
                     </select>
-                    <small id="updateStatusError" class="error-message hidden" style="margin-left: 55px;">Status is required.</small>
+                    <small id="updateStatusError" class="error-message hidden" style="margin-left: 55px">Status is required.</small>
                 </div>
             </div>
             <div class="modal-footer" style="text-align: center; margin-top: 60px;">
