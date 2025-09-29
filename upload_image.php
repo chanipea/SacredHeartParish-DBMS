@@ -1,4 +1,6 @@
 <?php
+session_start(); // ✅ must be at the very top, before any output
+
 // Directory where uploaded images will be saved
 $targetDir = "Upload_Images/";
 if (!file_exists($targetDir)) {
@@ -55,14 +57,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["uploadImage"])) {
 
     // Save updated paths
     file_put_contents($jsonPath, json_encode($imageData, JSON_PRETTY_PRINT));
+
+    // Flash success message for dashboard
+    $_SESSION['upload_success'] = true;
+
+    // Redirect back to dashboard
+   header("Location: dashboard.php?upload=success");
+    exit();
     
-    // Show modal
-    echo "<script>
-        window.parent.showSuccessModal('Image uploaded successfully.');
-        setTimeout(function() {
-            window.parent.location.reload();
-        }, 500);
-    </script>";
 } else {
     echo "<script>window.parent.displayUploadError('Invalid request.');</script>";
 }

@@ -24,11 +24,24 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     <title><?php echo $pageTitle; ?></title>
     <link rel="icon" type="image/x-icon" href="/images/sacred.png">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="stylesheet" href="dashStyle.css?v=16">
+    <link rel="stylesheet" href="dashStyle.css?v=21">
     <link rel="stylesheet" href="modalResponsive.css?v=13">
 
 </head>
 <body>
+
+<?php if (session_status() === PHP_SESSION_NONE) { session_start(); } ?>
+<?php if (isset($_SESSION['upload_success'])): ?>
+  <div id="uploadSuccessModal" class="modal">
+    <div class="modal-content2">
+      <span class="close-btn" onclick="closeSuccessModal()">&times;</span>
+      <h2>Image uploaded successfully</h2>
+      <button onclick="closeSuccessModal()">OK</button>
+    </div>
+  </div>
+  <?php unset($_SESSION['upload_success']);?>
+<?php endif; ?>
+
 <!-- Toggle Button for Mobile/Tablet -->
 <button id="sidebarToggleBtn" class="sidebar-toggle-button">
     <img src="icons/Menu.png" alt="Menu">
@@ -188,7 +201,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     <div class="modal-content2">
         <span onclick="closeUploadModal()" class="close-btn">&times;</span>
         <h2>Upload Image</h2>
-        <form id="uploadForm" action="upload_image.php" method="POST" enctype="multipart/form-data" target="uploadFrame">
+        <form id="uploadForm" action="upload_image.php" method="POST" enctype="multipart/form-data">
             <label for="uploadImage">Select Image:</label><br>
             <input type="file" id="uploadImage" name="uploadImage" required><br><br>
 
@@ -204,27 +217,19 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
             <button type="submit" class="upload-btn">Upload</button>
         </form>
-        <!-- Hidden iframe for uploading without page reload -->
-        <iframe name="uploadFrame" style="display:none;"></iframe>
+
+        </div>
     </div>
-</div>
 
-<div id="successModal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeSuccessModal()">&times;</span>
-    <h2>Success</h2>
-    <p id="successMessage">Image uploaded successfully.</p>
-    <button onclick="closeSuccessModal()">OK</button>
-  </div>
-</div>
+    
 
-    <script>
+<script>
 
-        let currentSlide = 1;
-        const totalSlides = 3; 
-        const intervalTime = 5000; 
+    let currentSlide = 1;
+    const totalSlides = 3; 
+    const intervalTime = 5000; 
         
-        let slideInterval;                                
+    let slideInterval;                                
 
 // Show slide
 function showSlide(slideIndex) {
@@ -426,14 +431,21 @@ window.addEventListener("load", () => {
             });
         }
 
-        function showSuccessModal(message) {
-  document.getElementById("successMessage").innerText = message;    
+        function closeSuccessModal() {
+  const modal = document.getElementById("uploadSuccessModal");
+  if (modal) modal.style.display = "none";
 }
 
-function closeSuccessModal() {
-  document.getElementById("successModal").style.display = "none";
-}
+window.addEventListener("load", () => {
+  const modal = document.getElementById("uploadSuccessModal");
+  if (modal) {
+    modal.style.display = "block";
+    setTimeout(closeSuccessModal, 3000); // Auto-close in 3s
+  }
+});
+
 
     </script>
+    
 </body>
 </html>

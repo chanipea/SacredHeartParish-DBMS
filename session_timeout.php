@@ -48,22 +48,12 @@ $_SESSION['LAST_ACTIVITY'] = time();
             border-radius: 10px;
         }
 
-        button {
-            margin-top: 10px;
-            padding: 8px 16px;
-            border: none;
-            background-color: #2c7;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #1a5;
-        }
+       
     </style>
 </head>
 <body>
+
+
 
 <!-- First Modal: Session warning -->
 <div id="timeoutModal">
